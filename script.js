@@ -1,5 +1,4 @@
 const STARS_COUNT = 200;
-const TERMINAL_INTERVAL = 3000;
 const PARTICLE_PROBABILITY = 0.95;
 
 let currentLang = "en";
@@ -127,6 +126,79 @@ function initParticleSystem() {
     });
 }
 
+function typeWriter(element, text, speed = 80, callback = null) {
+    element.innerHTML = '';
+    element.style.opacity = '1';
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            if (callback) callback();
+        }
+    }
+
+    type();
+}
+
+function animateTerminalContent() {
+    const terminalLines = document.querySelectorAll('.terminal-content > div');
+
+    let currentLineIndex = 0;
+
+    function animateNextTime() {
+        if (currentLineIndex >= terminalLines.length) {
+            setTimeout(() => {
+                currentLineIndex = 0;
+                animateNextTime();
+            }, 3000);
+            return;
+        }
+
+        const line = terminalLines[currentLineIndex];
+        const textContent = line.textContent || line.innerText;
+
+        line.style.transition = 'all 0.3s ease';
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+
+        setTimeout(() => {
+            const cursor = line.querySelector('.cursor');
+            if (cursor) {
+                const textWithoutCursor = textContent.replace('_', '');
+                line.innerHTML = '<span class="text-content"></span><span class="cursor">_</span>';
+                const textSpan = line.querySelector('.text-content');
+
+                typeWriter(textSpan, textWithoutCursor, 100, () => {
+                    cursor.style.animation = 'blink 1s infinite';
+                    setTimeout(() => {
+                        currentLineIndex++;
+                        animateNextTime();
+                    }, 1500);
+                });
+            } else {
+                typeWriter(line, textContent, 60, () => {
+                    setTimeout(() => {
+                        currentLineIndex++;
+                        animateNextTime();
+                    }, 800);
+                });
+            }
+        }, 200);
+    }
+
+    animateNextTime();
+}
+
+function initTerminalAnimation() {
+    setTimeout(() => {
+        animateTerminalContent();
+    }, 1000);
+}
+
 function init() {
     document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Initializing the portfolio...');
@@ -159,6 +231,9 @@ function init() {
 
             initParticleSystem();
             console.log('✅ Particle system enabled');
+
+            initTerminalAnimation();
+            console.log('✅ Terminal animation started');
 
             console.log('🌟 Portfolio operational!');
         } catch (error) {
