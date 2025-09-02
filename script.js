@@ -25,18 +25,9 @@ function createLanguageParticles(element) {
     for (let i = 0; i < 5; i++) {
         setTimeout(() => {
             const particle = document.createElement('div');
-            particle.style.position = 'fixed';
+            particle.className = 'language-particle';
             particle.style.left = (rect.left + rect.width/2 + (Math.random() - 0.5) * 30) + 'px';
             particle.style.top = (rect.top + rect.height/2 + (Math.random() - 0.5) * 30) + 'px';
-            particle.style.width = '3px';
-            particle.style.height = '3px';
-            particle.style.background = '#00ffff';
-            particle.style.borderRadius = '50%';
-            particle.style.pointerEvents = 'none';
-            particle.style.zIndex = '9999';
-            particle.style.opacity = '0.8';
-            particle.style.boxShadow = '0 0 6px #00ffff';
-            particle.style.animation = 'languageParticle 0.8s ease-out forwards';
             document.body.appendChild(particle);
 
             setTimeout(() => {
@@ -84,17 +75,9 @@ function initParallaxEffect() {
 
 function createParticle(x, y) {
     const particle = document.createElement('div');
-    particle.style.position = 'fixed';
+    particle.className = 'mouse-particle';
     particle.style.left = x + 'px';
     particle.style.top = y + 'px';
-    particle.style.width = '2px';
-    particle.style.height = '2px';
-    particle.style.background = '#4facfe';
-    particle.style.borderRadius = '50%';
-    particle.style.pointerEvents = 'none';
-    particle.style.zIndex = '-1';
-    particle.style.opacity = '0.6';
-    particle.style.animation = 'particleFade 1s ease-out forwards';
     document.body.appendChild(particle);
 
     setTimeout(() => {
@@ -128,7 +111,7 @@ function initParticleSystem() {
 
 function typeWriter(element, text, speed = 80, callback = null) {
     element.innerHTML = '';
-    element.style.opacity = '1';
+    element.classList.add('typewriter-active');
     let i = 0;
 
     function type() {
@@ -195,7 +178,7 @@ function animateTerminalContent() {
                 const newCursor = line.querySelector('.cursor');
 
                 typeWriter(textSpan, textWithoutCursor, 100, () => {
-                    newCursor.style.animation = 'blink 1s infinite';
+                    newCursor.classList.add('cursor-blink');
                     setTimeout(() => {
                         currentLineIndex++;
                         animateNextLine();
@@ -228,23 +211,6 @@ function initTerminalAnimation() {
 function init() {
     document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Initializing the portfolio...');
-
-        const style = document.createElement('style');
-        style.textContent = `
-            .terminal-content {
-                min-height: 20px !important;
-                height: auto !important;
-                overflow: hidden;
-            }
-            .terminal-content > div {
-                display: none;
-                opacity: 0;
-                transform: translateY(10px);
-                margin: 0;
-                padding: 0;
-            }
-        `;
-        document.head.appendChild(style);
 
         try {
             loadLanguage(currentLang).then(() => {
@@ -280,7 +246,7 @@ function init() {
 
             console.log('🌟 Portfolio operational!');
         } catch (error) {
-            console.error('❌ Error during initialization:', error);
+            console.error('⚠ Error during initialization:', error);
         }
     });
 }
