@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Adrien CLAUDE</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="langSelector">
+        <div class="lang-toggle">
+            <div class="lang-option active" data-lang="en">EN</div>
+            <div class="lang-option" data-lang="fr">FR</div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#home" class="nav-item" data-i18n="home"></a>
+        <a href="#about" class="nav-item" data-i18n="about"></a>
+        <a href="#game-projects" class="nav-item" data-i18n="game_projects"></a>
+        <a href="#tech-projects" class="nav-item" data-i18n="tech_projects"></a>
+        <a href="#contact" class="nav-item" data-i18n="contact"></a>
+    </nav>
+
+    <div class="terminal">
+        <div class="terminal-header" data-i18n="terminal_header"></div>
+        <div class="terminal-content">
+            <div data-i18n="terminal_init_network"></div>
+            <div data-i18n="terminal_connection_established"></div>
+            <div data-i18n="terminal_scanning"></div>
+            <div><span data-i18n="terminal_ready"></span><span class="cursor">_</span></div>
+        </div>
+    </div>
+
+    <section id="home" class="home">
+        <div class="profile-container">
+            <div class="profile-image">
+                <img src="images/adrien_pp.webp" alt="adrien_pp">
+            </div>
+        </div>
+
+        <div class="presentation-text">
+            <h1 data-i18n="home_name"></h1>
+            <h2 data-i18n="home_network_gameplay_programmer"></h2>
+            <p data-i18n="home_presentation"></p>
+        </div>
+
+        <div class="skills-section">
+            <div class="skill-category">
+                <h3 data-i18n="home_programming_language"></h3>
+                <div class="logos-container">
+                    <div class="logo-item" data-i18n-tooltip="home_cpp">
+                        <div class="logo">
+                            <img src="logos/cpp_logo.webp" alt="cpp_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_csharp">
+                        <div class="logo">
+                            <img src="logos/csharp_logo.webp" alt="csharp_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_c">
+                        <div class="logo">
+                            <img src="logos/c_logo.webp" alt="c_logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 data-i18n="home_engine_framework"></h3>
+                <div class="logos-container">
+                    <div class="logo-item" data-i18n-tooltip="home_unity">
+                        <div class="logo">
+                            <img src="logos/unity_logo.webp" alt="unity_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_sfml">
+                        <div class="logo">
+                            <img src="logos/sfml_logo.webp" alt="sfml_logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 data-i18n="home_software_tools"></h3>
+                <div class="logos-container">
+                    <div class="logo-item" data-i18n-tooltip="home_visual_studio">
+                        <div class="logo">
+                            <img src="logos/visual_studio_logo.webp" alt="visual_studio_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_visual_studio_code">
+                        <div class="logo">
+                            <img src="logos/visual_studio_code_logo.webp" alt="visual_studio_code_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_cmake">
+                        <div class="logo">
+                            <img src="logos/cmake_logo.webp" alt="cmake_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_github">
+                        <div class="logo">
+                            <img src="logos/github_logo.webp" alt="github_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_tortoise_svn">
+                        <div class="logo">
+                            <img src="logos/tortoise_svn_logo.webp" alt="tortoise_svn_logo">
+                        </div>
+                    </div>
+                    <div class="logo-item" data-i18n-tooltip="home_doxygen">
+                        <div class="logo">
+                            <img src="logos/doxygen_logo.webp" alt="doxygen_logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
