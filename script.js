@@ -146,51 +146,77 @@ function typeWriter(element, text, speed = 80, callback = null) {
 
 function animateTerminalContent() {
     const terminalLines = document.querySelectorAll('.terminal-content > div');
+    
+    terminalLines.forEach(line => {
+        if (!line.getAttribute('data-original-content')) {
+            line.setAttribute('data-original-content', line.innerHTML);
+        }
+        line.innerHTML = '';
+        line.style.opacity = '0';
+        line.style.transform = 'translateY(10px)';
+        line.style.display = 'none';
+    });
 
     let currentLineIndex = 0;
 
-    function animateNextTime() {
+    function animateNextLine() {
         if (currentLineIndex >= terminalLines.length) {
             setTimeout(() => {
+                terminalLines.forEach(line => {
+                    line.innerHTML = '';
+                    line.style.opacity = '0';
+                    line.style.transform = 'translateY(10px)';
+                    line.style.display = 'none';
+                });
                 currentLineIndex = 0;
-                animateNextTime();
+                animateNextLine();
             }, 3000);
             return;
         }
 
         const line = terminalLines[currentLineIndex];
-        const textContent = line.textContent || line.innerText;
+        const originalContent = line.getAttribute('data-original-content');
 
+        line.style.display = 'block';
         line.style.transition = 'all 0.3s ease';
         line.style.opacity = '1';
         line.style.transform = 'translateY(0)';
 
         setTimeout(() => {
-            const cursor = line.querySelector('.cursor');
-            if (cursor) {
-                const textWithoutCursor = textContent.replace('_', '');
+            if (originalContent.includes('cursor') || originalContent.includes('_')) {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = originalContent;
+                const cursorEl = tempDiv.querySelector('.cursor');
+                if (cursorEl) cursorEl.remove();
+                const textWithoutCursor = tempDiv.textContent || tempDiv.innerText || '';
+                
                 line.innerHTML = '<span class="text-content"></span><span class="cursor">_</span>';
                 const textSpan = line.querySelector('.text-content');
+                const newCursor = line.querySelector('.cursor');
 
                 typeWriter(textSpan, textWithoutCursor, 100, () => {
-                    cursor.style.animation = 'blink 1s infinite';
+                    newCursor.style.animation = 'blink 1s infinite';
                     setTimeout(() => {
                         currentLineIndex++;
-                        animateNextTime();
+                        animateNextLine();
                     }, 1500);
                 });
             } else {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = originalContent;
+                const textContent = tempDiv.textContent || tempDiv.innerText || '';
+                
                 typeWriter(line, textContent, 60, () => {
                     setTimeout(() => {
                         currentLineIndex++;
-                        animateNextTime();
+                        animateNextLine();
                     }, 800);
                 });
             }
         }, 200);
     }
 
-    animateNextTime();
+    animateNextLine();
 }
 
 function initTerminalAnimation() {
@@ -203,10 +229,30 @@ function init() {
     document.addEventListener('DOMContentLoaded', function() {
         console.log('🚀 Initializing the portfolio...');
 
-        try {
-            loadLanguage(currentLang);
-            console.log('✅ Languages loaded');
+        const style = document.createElement('style');
+        style.textContent = `
+            .terminal-content {
+                min-height: 20px !important;
+                height: auto !important;
+                overflow: hidden;
+            }
+            .terminal-content > div {
+                display: none;
+                opacity: 0;
+                transform: translateY(10px);
+                margin: 0;
+                padding: 0;
+            }
+        `;
+        document.head.appendChild(style);
 
+        try {
+            loadLanguage(currentLang).then(() => {
+                console.log('✅ Languages loaded');
+                initTerminalAnimation();
+                console.log('✅ Terminal animation started');
+            });
+            
             document.querySelectorAll('.lang-option').forEach(option => {
                 option.addEventListener('click', function() {
                     document.querySelectorAll('.lang-option').forEach(opt => {
@@ -231,9 +277,6 @@ function init() {
 
             initParticleSystem();
             console.log('✅ Particle system enabled');
-
-            initTerminalAnimation();
-            console.log('✅ Terminal animation started');
 
             console.log('🌟 Portfolio operational!');
         } catch (error) {
