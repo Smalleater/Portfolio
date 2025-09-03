@@ -199,6 +199,7 @@ body::before {
     z-index: 1000;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
 .terminal-header {
@@ -223,6 +224,60 @@ body::before {
 .terminal-content > div {
     margin: 0;
     padding: 0;
+}
+
+.terminal-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(13, 17, 23, 0.9);
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    border-radius: 50%;
+    color: #4facfe;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.terminal-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
+}
+
+.terminal-toggle::before {
+    content: '>';
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.terminal.minimized {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.terminal-close {
+    background: none;
+    border: none;
+    color: #4facfe;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    display: none;
+}
+
+.terminal-close:hover {
+    opacity: 1;
 }
 
 .cursor {
@@ -432,6 +487,21 @@ section {
     }
 }
 
+@keyframes terminalSlideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.terminal.show {
+    animation: terminalSlideUp 0.3s ease-out;
+}
+
 @media (max-width: 1024px) {
     .nav {
         padding: 6px 10px;
@@ -447,6 +517,7 @@ section {
     .terminal {
         width: 300px;
         right: 15px;
+        top: 90px;
     }
 
     .langSelector {
@@ -523,8 +594,19 @@ section {
 
     .terminal {
         width: 280px;
-        right: 10px;
-        top: 70px;
+        right: 15px;
+        top: 80px;
+        padding: 12px;
+    }
+    
+    .terminal-header {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .terminal-content {
+        font-size: 9px;
+        line-height: 1.5;
     }
 
     .stars {
@@ -537,6 +619,35 @@ section {
 
     body::before {
         background: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .terminal {
+        position: fixed;
+        top: auto;
+        bottom: 80px;
+        right: 15px;
+        left: 15px;
+        width: auto;
+        max-height: 200px;
+        overflow-y: auto;
+        transform: translateY(0);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .terminal-toggle {
+        display: flex;
+    }
+    
+    .terminal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .terminal-close {
+        display: block;
     }
 }
 
@@ -595,7 +706,29 @@ section {
     }
 
     .terminal {
-        display: none;
+        bottom: 70px;
+        right: 10px;
+        left: 10px;
+        padding: 10px;
+        border-radius: 6px;
+    }
+    
+    .terminal-toggle {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .terminal-header {
+        font-size: 9px;
+        margin-bottom: 8px;
+    }
+    
+    .terminal-content {
+        font-size: 8px;
+        line-height: 1.4;
     }
 
     .home h1 {
@@ -672,6 +805,20 @@ section {
     .logos-container {
         gap: 10px;
     }
+    
+    .terminal {
+        bottom: 65px;
+        padding: 8px;
+        max-height: 150px;
+    }
+    
+    .terminal-toggle {
+        bottom: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -716,6 +863,10 @@ section {
     }
 
     .terminal {
+        display: none;
+    }
+    
+    .terminal-toggle {
         display: none;
     }
 }
