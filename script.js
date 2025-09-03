@@ -221,6 +221,58 @@ function initTerminalAnimation() {
     }, 1000);
 }
 
+function initTerminalControls() {
+    const terminal = document.querySelector('.terminal');
+    const closeButton = document.querySelector('.terminal-close');
+    const minimizeButton = document.querySelector('.terminal-minimize');
+    
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            // Ferme complètement le terminal
+            terminal.classList.add('minimized');
+        });
+    }
+    
+    if (minimizeButton) {
+        minimizeButton.addEventListener('click', function() {
+            // Bascule entre réduit et normal (pas fermé)
+            if (terminal.classList.contains('collapsed')) {
+                terminal.classList.remove('collapsed');
+                minimizeButton.title = 'Minimiser';
+                minimizeButton.style.transform = 'rotate(0deg)';
+            } else {
+                terminal.classList.add('collapsed');
+                minimizeButton.title = 'Restaurer';
+                minimizeButton.style.transform = 'rotate(180deg)';
+            }
+        });
+    }
+    
+    // Optionnel : double-clic sur le header pour minimiser/restaurer
+    const terminalHeader = document.querySelector('.terminal-header');
+    if (terminalHeader) {
+        terminalHeader.addEventListener('dblclick', function() {
+            if (minimizeButton) {
+                minimizeButton.click();
+            }
+        });
+    }
+    
+    // Optionnel : bouton pour restaurer le terminal quand il est fermé
+    document.addEventListener('keydown', function(e) {
+        // Ctrl + T pour réouvrir le terminal (si fermé)
+        if (e.ctrlKey && e.key === 't') {
+            e.preventDefault();
+            terminal.classList.remove('minimized');
+            terminal.classList.remove('collapsed');
+            if (minimizeButton) {
+                minimizeButton.title = 'Minimiser';
+                minimizeButton.style.transform = 'rotate(0deg)';
+            }
+        }
+    });
+}
+
 function init() {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initializePortfolio);
@@ -266,9 +318,12 @@ function initializePortfolio() {
         initParticleSystem();
         console.log('✅ Particle system enabled (optimized)');
 
+        initTerminalControls();
+        console.log('✅ Terminal controls initialized');
+
         console.log('🌟 Optimized portfolio operational!');
     } catch (error) {
-        console.error('⚠ Error during initialization:', error);
+        console.error('⚠️ Error during initialization:', error);
     }
 }
 
