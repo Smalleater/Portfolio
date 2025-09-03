@@ -20,10 +20,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(0, 100, 200, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(100, 0, 200, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(0, 200, 100, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(0, 100, 200, 0.08) 0%, transparent 70%);
     pointer-events: none;
     z-index: -2;
 }
@@ -36,25 +33,24 @@ body::before {
     height: 100%;
     pointer-events: none;
     z-index: -1;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .star {
     position: absolute;
     background: #6f7f8f;
     border-radius: 50%;
-    animation: deepTwinkle 4s infinite alternate;
+    animation: simpleTwinkle 6s infinite alternate;
+    will-change: opacity, transform;
 }
 
-@keyframes deepTwinkle {
+@keyframes simpleTwinkle {
     0% {
-        opacity: 0.1;
-        transform: scale(0.5);
-        box-shadow: 0 0 2px rgba(111, 127, 143, 0.3);
+        opacity: 0.2;
     }
     100% {
         opacity: 0.6;
-        transform: scale(1);
-        box-shadow: 0 0 6px rgba(111, 127, 143, 0.3);
     }
 }
 
@@ -71,21 +67,14 @@ body::before {
     border: 1px solid rgba(79, 172, 254, 0.3);
     border-radius: 25px;
     padding: 4px;
-    backdrop-filter: blur(20px);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(79, 172, 254, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
 }
 
 .lang-toggle:hover {
     border-color: rgba(79, 172, 254, 0.5);
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(79, 172, 254, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .lang-option {
@@ -114,28 +103,23 @@ body::before {
     border-radius: 50%;
     transform: translateY(-50%);
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
 .lang-option.active {
-    background: linear-gradient(135deg, rgba(79, 172, 254, 0.25), rgba(0, 255, 255, 0.15));
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 255, 255, 0.1));
     color: #4facfe;
-    box-shadow: 
-        0 0 15px rgba(79, 172, 254, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.2);
 }
 
 .lang-option.active::before {
     opacity: 1;
     background: #00ffff;
-    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
 }
 
 .lang-option:hover:not(.active) {
     color: rgba(79, 172, 254, 0.8);
     background: rgba(79, 172, 254, 0.1);
-    transform: translateY(-1px);
 }
 
 .lang-option:hover:not(.active)::before {
@@ -153,11 +137,9 @@ body::before {
     background: rgba(13, 17, 23, 0.8);
     padding: 8px 12px;
     border-radius: 25px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(79, 172, 254, 0.2);
-    box-shadow:
-        0 0 20px rgba(79, 172, 254, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.1);
 }
 
 .nav-item {
@@ -167,7 +149,7 @@ body::before {
     border-radius: 18px;
     color: rgba(201, 209, 217, 0.8);
     text-decoration: none;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -186,20 +168,19 @@ body::before {
     border-radius: 50%;
     transform: translateY(-50%);
     opacity: 0;
-    transition: all 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
 .nav-item:hover {
     background: rgba(79, 172, 254, 0.1);
     color: #4facfe;
     border-color: rgba(79, 172, 254, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(79, 172, 254, 0.2);
 }
 
 .nav-item:hover::before {
     opacity: 1;
-    transform: translateY(-50%) scale(1.2);
 }
 
 .terminal {
@@ -212,10 +193,8 @@ body::before {
     border-radius: 8px;
     padding: 16px;
     z-index: 1000;
-    backdrop-filter: blur(20px);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(79, 172, 254, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .terminal-header {
@@ -232,25 +211,21 @@ body::before {
     font-size: 10px;
     line-height: 1.6;
     opacity: 0.8;
-    min-height: 20px !important;
-    height: auto !important;
+    min-height: 20px;
+    height: auto;
     overflow: hidden;
 }
 
 .terminal-content > div {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    display: none;
     margin: 0;
     padding: 0;
 }
 
 .cursor {
-    animation: blink 1s infinite;
+    animation: simpleBlink 1.5s infinite;
 }
 
-@keyframes blink {
+@keyframes simpleBlink {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
 }
@@ -275,9 +250,10 @@ section {
     margin: 0 auto;
     border-radius: 50%;
     border: 3px solid #00ffff;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease;
     overflow: hidden;
+    will-change: transform;
 }
 
 .profile-image img {
@@ -288,8 +264,8 @@ section {
 }
 
 .profile-image:hover {
-    box-shadow: 0 0 50px rgba(0, 255, 255, 0.8);
-    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    transform: scale(1.02);
 }
 
 #home {
@@ -352,34 +328,35 @@ section {
 .logo {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
-    border: 2px solid rgba(0, 255, 255, 0.5);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.15));
+    border: 2px solid rgba(0, 255, 255, 0.4);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 8px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    will-change: transform;
 }
 
 .logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.3));
+    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.2));
+    transition: transform 0.3s ease;
 }
 
 .logo:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.2);
     border-color: #00ffff;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
 }
 
 .logo:hover img {
-    filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
-    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+    transform: scale(1.05);
 }
 
 .logo-item::after {
@@ -396,85 +373,62 @@ section {
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
     border: 1px solid #00ffff;
     z-index: 1000;
 }
 
 .logo-item:hover::after {
     opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
 }
 
-/* Particules de langage */
 .language-particle {
     position: fixed;
-    width: 3px;
-    height: 3px;
+    width: 2px;
+    height: 2px;
     background: #00ffff;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.8;
-    box-shadow: 0 0 6px #00ffff;
-    animation: languageParticle 0.8s ease-out forwards;
+    opacity: 0.6;
+    animation: optimizedLanguageParticle 0.6s ease-out forwards;
 }
 
-/* Particules de souris */
 .mouse-particle {
     position: fixed;
-    width: 2px;
-    height: 2px;
+    width: 1.5px;
+    height: 1.5px;
     background: #4facfe;
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
-    opacity: 0.6;
-    animation: particleFade 1s ease-out forwards;
+    opacity: 0.4;
+    animation: optimizedParticleFade 0.8s ease-out forwards;
 }
 
-/* États des lignes du terminal */
-.terminal-line-hidden {
-    display: none !important;
-    opacity: 0 !important;
-    transform: translateY(10px) !important;
-}
-
-.terminal-line-visible {
-    display: block !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: all 0.3s ease !important;
-}
-
-/* Typewriter effect */
-.typewriter-active {
-    opacity: 1 !important;
-}
-
-/* Cursor blink */
-.cursor-blink {
-    animation: blink 1s infinite !important;
-}
-
-@keyframes languageParticle {
+@keyframes optimizedLanguageParticle {
     0% {
-        opacity: 0.8;
-        transform: scale(1) translateY(0);
+        opacity: 0.6;
+        transform: scale(1);
     }
     100% {
         opacity: 0;
-        transform: scale(0.3) translateY(-25px);
+        transform: scale(0.5) translateY(-15px);
     }
 }
 
-@keyframes particleFade {
-    0% { opacity: 0.6; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0) translateY(-20px); }
+@keyframes optimizedParticleFade {
+    0% { 
+        opacity: 0.4; 
+        transform: scale(1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0) translateY(-10px); 
+    }
 }
 
-@media (max-width: 768px)
-{
+@media (max-width: 768px) {
     .langSelector {
         top: 15px;
         right: 15px;
@@ -491,7 +445,7 @@ section {
         gap: 30px;
     }
 
-    .skills-category h3 {
+    .skill-category h3 {
         font-size: 1.1rem;
     }
 
@@ -508,4 +462,48 @@ section {
         right: 10px;
         top: 80px;
     }
+
+    .stars {
+        display: none;
+    }
+
+    .mouse-particle {
+        display: none;
+    }
+
+    body::before {
+        background: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .star,
+    .cursor,
+    .language-particle,
+    .mouse-particle {
+        animation: none;
+    }
+    
+    .logo:hover,
+    .profile-image:hover,
+    .nav-item:hover,
+    .lang-toggle:hover {
+        transform: none;
+    }
+}
+
+.star,
+.language-particle,
+.mouse-particle,
+.profile-image,
+.logo {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.nav-item,
+.lang-option,
+.logo {
+    contain: layout style paint;
 }

@@ -1,74 +1,107 @@
-const STARS_COUNT = 200;
-const PARTICLE_PROBABILITY = 0.95;
+const STARS_COUNT = 50;
+const PARTICLE_PROBABILITY = 0.98;
 
 let currentLang = "en";
+let isAnimating = false;
+let lastScrollTime = 0;
+let lastMouseTime = 0;
+
+const cache = {
+    stars: null,
+    profileImage: null,
+    scrollHeight: null
+};
 
 async function loadLanguage(lang) {
-    const response = await fetch(`./lang/${lang}.json`);
-    const translation = await response.json();
+    try {
+        const response = await fetch(`./lang/${lang}.json`);
+        const translation = await response.json();
 
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        el.innerText = translation[key] || key;
-    });
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            if (translation[key]) {
+                el.innerText = translation[key];
+            }
+        });
 
-    document.querySelectorAll("[data-i18n-tooltip]").forEach(el => {
-        const key = el.getAttribute("data-i18n-tooltip");
-        el.setAttribute("data-tooltip", translation[key] || key);
-    });
+        document.querySelectorAll("[data-i18n-tooltip]").forEach(el => {
+            const key = el.getAttribute("data-i18n-tooltip");
+            if (translation[key]) {
+                el.setAttribute("data-tooltip", translation[key]);
+            }
+        });
 
-    document.documentElement.setAttribute("lang", lang);
+        document.documentElement.setAttribute("lang", lang);
+    } catch (error) {
+        console.error('Error loading language:', error);
+    }
 }
 
 function createLanguageParticles(element) {
     const rect = element.getBoundingClientRect();
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 2; i++) {
         setTimeout(() => {
             const particle = document.createElement('div');
             particle.className = 'language-particle';
-            particle.style.left = (rect.left + rect.width/2 + (Math.random() - 0.5) * 30) + 'px';
-            particle.style.top = (rect.top + rect.height/2 + (Math.random() - 0.5) * 30) + 'px';
+            particle.style.left = (rect.left + rect.width/2) + 'px';
+            particle.style.top = (rect.top + rect.height/2) + 'px';
             document.body.appendChild(particle);
 
             setTimeout(() => {
                 if (particle.parentNode) {
                     particle.parentNode.removeChild(particle);
                 }
-            }, 800);
-        }, i * 50);
+            }, 600);
+        }, i * 100);
     }
 }
 
 function createStars() {
     const starsContainer = document.getElementById('stars');
+    const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < STARS_COUNT; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
-        star.style.width = Math.random() * 3 + 1 + 'px';
-        star.style.height = star.style.width;
+        const size = Math.random() * 2 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
         star.style.animationDelay = Math.random() * 3 + 's';
-        starsContainer.appendChild(star);
+        fragment.appendChild(star);
     }
+    
+    starsContainer.appendChild(fragment);
+    
+    cache.stars = document.querySelectorAll('.star');
+    cache.profileImage = document.querySelector('.profile-image');
 }
 
 function initParallaxEffect() {
-    window.addEventListener('scroll', () => {
+    let ticking = false;
+    
+    function updateParallax() {
         const scrolled = window.pageYOffset;
-        const stars = document.querySelectorAll('.star');
-
-        stars.forEach((star, index) => {
-            const layer = (index % 4 + 1);
-            const speed = layer * 0.2;
-            const yPos = scrolled * speed;
-            star.style.transform = `translateY(${yPos}px) translateZ(0)`;
+        
+        cache.stars.forEach((star, index) => {
+            if (index % 4 === 0) {
+                const speed = 0.1;
+                star.style.transform = `translateY(${scrolled * speed}px)`;
+            }
         });
 
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            profileImage.style.transform = `translateY(${scrolled * 0.1}px) scale(${1.05 - scrolled * 0.0001})`;
+        if (cache.profileImage) {
+            cache.profileImage.style.transform = `translateY(${scrolled * 0.05}px)`;
+        }
+        
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
         }
     });
 }
@@ -84,34 +117,21 @@ function createParticle(x, y) {
         if (particle.parentNode) {
             particle.parentNode.removeChild(particle);
         }
-    }, 1000);
+    }, 800);
 }
 
 function initParticleSystem() {
     document.addEventListener('mousemove', function(e) {
-        if (Math.random() > PARTICLE_PROBABILITY) {
+        const now = Date.now();
+        if (now - lastMouseTime > 200 && Math.random() > PARTICLE_PROBABILITY) {
             createParticle(e.clientX, e.clientY);
+            lastMouseTime = now;
         }
-    });
-
-    document.querySelectorAll('.lang-option').forEach(option => {
-        option.addEventListener('mouseenter', function(e) {
-            const rect = this.getBoundingClientRect();
-            for (let i = 0; i < 2; i++) {
-                setTimeout(() => {
-                    createParticle(
-                        rect.left + rect.width/2 + (Math.random() - 0.5) * 20,
-                        rect.top + rect.height/2 + (Math.random() - 0.5) * 20
-                    )
-                }, i * 100);
-            }
-        });
     });
 }
 
-function typeWriter(element, text, speed = 80, callback = null) {
+function typeWriter(element, text, speed = 100, callback = null) {
     element.innerHTML = '';
-    element.classList.add('typewriter-active');
     let i = 0;
 
     function type() {
@@ -128,15 +148,16 @@ function typeWriter(element, text, speed = 80, callback = null) {
 }
 
 function animateTerminalContent() {
+    if (isAnimating) return;
+    isAnimating = true;
+    
     const terminalLines = document.querySelectorAll('.terminal-content > div');
     
-    terminalLines.forEach(line => {
+    terminalLines.forEach((line, index) => {
         if (!line.getAttribute('data-original-content')) {
             line.setAttribute('data-original-content', line.innerHTML);
         }
         line.innerHTML = '';
-        line.style.opacity = '0';
-        line.style.transform = 'translateY(10px)';
         line.style.display = 'none';
     });
 
@@ -147,13 +168,12 @@ function animateTerminalContent() {
             setTimeout(() => {
                 terminalLines.forEach(line => {
                     line.innerHTML = '';
-                    line.style.opacity = '0';
-                    line.style.transform = 'translateY(10px)';
                     line.style.display = 'none';
                 });
                 currentLineIndex = 0;
-                animateNextLine();
-            }, 3000);
+                isAnimating = false;
+                setTimeout(() => animateTerminalContent(), 5000);
+            }, 2000);
             return;
         }
 
@@ -161,42 +181,35 @@ function animateTerminalContent() {
         const originalContent = line.getAttribute('data-original-content');
 
         line.style.display = 'block';
-        line.style.transition = 'all 0.3s ease';
-        line.style.opacity = '1';
-        line.style.transform = 'translateY(0)';
 
-        setTimeout(() => {
-            if (originalContent.includes('cursor') || originalContent.includes('_')) {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = originalContent;
-                const cursorEl = tempDiv.querySelector('.cursor');
-                if (cursorEl) cursorEl.remove();
-                const textWithoutCursor = tempDiv.textContent || tempDiv.innerText || '';
-                
-                line.innerHTML = '<span class="text-content"></span><span class="cursor">_</span>';
-                const textSpan = line.querySelector('.text-content');
-                const newCursor = line.querySelector('.cursor');
+        if (originalContent.includes('cursor') || originalContent.includes('_')) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = originalContent;
+            const cursorEl = tempDiv.querySelector('.cursor');
+            if (cursorEl) cursorEl.remove();
+            const textWithoutCursor = tempDiv.textContent || tempDiv.innerText || '';
+            
+            line.innerHTML = '<span class="text-content"></span><span class="cursor">_</span>';
+            const textSpan = line.querySelector('.text-content');
 
-                typeWriter(textSpan, textWithoutCursor, 100, () => {
-                    newCursor.classList.add('cursor-blink');
-                    setTimeout(() => {
-                        currentLineIndex++;
-                        animateNextLine();
-                    }, 1500);
-                });
-            } else {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = originalContent;
-                const textContent = tempDiv.textContent || tempDiv.innerText || '';
-                
-                typeWriter(line, textContent, 60, () => {
-                    setTimeout(() => {
-                        currentLineIndex++;
-                        animateNextLine();
-                    }, 800);
-                });
-            }
-        }, 200);
+            typeWriter(textSpan, textWithoutCursor, 120, () => {
+                setTimeout(() => {
+                    currentLineIndex++;
+                    animateNextLine();
+                }, 1000);
+            });
+        } else {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = originalContent;
+            const textContent = tempDiv.textContent || tempDiv.innerText || '';
+            
+            typeWriter(line, textContent, 80, () => {
+                setTimeout(() => {
+                    currentLineIndex++;
+                    animateNextLine();
+                }, 600);
+            });
+        }
     }
 
     animateNextLine();
@@ -209,46 +222,54 @@ function initTerminalAnimation() {
 }
 
 function init() {
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('🚀 Initializing the portfolio...');
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializePortfolio);
+    } else {
+        initializePortfolio();
+    }
+}
 
-        try {
-            loadLanguage(currentLang).then(() => {
-                console.log('✅ Languages loaded');
-                initTerminalAnimation();
-                console.log('✅ Terminal animation started');
-            });
-            
-            document.querySelectorAll('.lang-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    document.querySelectorAll('.lang-option').forEach(opt => {
-                        opt.classList.remove('active');
-                    });
+function initializePortfolio() {
+    console.log('🚀 Initializing optimized portfolio...');
 
-                    this.classList.add('active');
-
-                    const newLang = this.getAttribute('data-lang');
-                    currentLang = newLang;
-                    loadLanguage(currentLang);
-
-                    createLanguageParticles(this);
+    try {
+        loadLanguage(currentLang).then(() => {
+            console.log('✅ Languages loaded');
+            initTerminalAnimation();
+            console.log('✅ Terminal animation started');
+        });
+        
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function(e) {
+                if (this.classList.contains('active')) return;
+                
+                document.querySelectorAll('.lang-option').forEach(opt => {
+                    opt.classList.remove('active');
                 });
+
+                this.classList.add('active');
+
+                const newLang = this.getAttribute('data-lang');
+                currentLang = newLang;
+                loadLanguage(currentLang);
+
+                createLanguageParticles(this);
             });
+        });
 
-            createStars();
-            console.log('✅ Stars generated');
+        createStars();
+        console.log('✅ Stars generated (optimized)');
 
-            initParallaxEffect();
-            console.log('✅ Parallax effect enabled');
+        initParallaxEffect();
+        console.log('✅ Parallax effect enabled (optimized)');
 
-            initParticleSystem();
-            console.log('✅ Particle system enabled');
+        initParticleSystem();
+        console.log('✅ Particle system enabled (optimized)');
 
-            console.log('🌟 Portfolio operational!');
-        } catch (error) {
-            console.error('⚠ Error during initialization:', error);
-        }
-    });
+        console.log('🌟 Optimized portfolio operational!');
+    } catch (error) {
+        console.error('⚠ Error during initialization:', error);
+    }
 }
 
 window.addEventListener('error', function(e) {
