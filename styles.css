@@ -436,7 +436,7 @@ section {
     .nav {
         padding: 6px 10px;
         gap: 1px;
-        max-width: calc(100vw - 60px);
+        max-width: calc(100vw - 160px);
     }
     
     .nav-item {
@@ -448,6 +448,23 @@ section {
         width: 300px;
         right: 15px;
     }
+
+    .langSelector {
+        top: 20px;
+        right: 15px;
+    }
+
+    .lang-toggle {
+        padding: 4px;
+        border-radius: 20px;
+    }
+
+    .lang-option {
+        padding: 6px 14px;
+        font-size: 10px;
+        min-width: 38px;
+        letter-spacing: 0.8px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -456,17 +473,25 @@ section {
         right: 15px;
     }
 
+    .lang-toggle {
+        padding: 3px;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+
     .lang-option {
         padding: 6px 12px;
         font-size: 10px;
         min-width: 35px;
+        border-radius: 15px;
+        letter-spacing: 0.6px;
     }
 
     .nav {
         top: 15px;
         padding: 6px 8px;
         gap: 1px;
-        max-width: calc(100vw - 100px);
+        max-width: calc(100vw - 120px);
         left: 20px;
         transform: none;
         border-radius: 20px;
@@ -516,14 +541,41 @@ section {
 }
 
 @media (max-width: 480px) {
+    .langSelector {
+        top: 10px;
+        right: 10px;
+        z-index: 1002;
+    }
+
+    .lang-toggle {
+        padding: 2px;
+        border-radius: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(8px);
+    }
+
+    .lang-option {
+        padding: 4px 10px;
+        font-size: 9px;
+        min-width: 32px;
+        border-radius: 12px;
+        letter-spacing: 0.4px;
+    }
+
+    .lang-option::before {
+        width: 2px;
+        height: 2px;
+        left: 4px;
+    }
+
     .nav {
         top: 10px;
         left: 10px;
-        right: 10px;
+        right: 70px;
         transform: none;
         padding: 4px 6px;
         max-width: none;
-        width: calc(100vw - 20px);
+        width: calc(100vw - 80px);
         justify-content: space-around;
         border-radius: 15px;
     }
@@ -540,22 +592,6 @@ section {
     
     .nav-item::before {
         display: none;
-    }
-
-    .langSelector {
-        top: 10px;
-        right: 10px;
-    }
-
-    .lang-toggle {
-        padding: 2px;
-        border-radius: 15px;
-    }
-
-    .lang-option {
-        padding: 4px 8px;
-        font-size: 9px;
-        min-width: 30px;
     }
 
     .terminal {
@@ -587,15 +623,37 @@ section {
 }
 
 @media (max-width: 360px) {
+    .langSelector {
+        top: 8px;
+        right: 8px;
+    }
+
+    .lang-toggle {
+        padding: 2px;
+        border-radius: 12px;
+    }
+
+    .lang-option {
+        padding: 3px 8px;
+        font-size: 8px;
+        min-width: 28px;
+        border-radius: 10px;
+        letter-spacing: 0.2px;
+    }
+
     .nav {
         gap: 0;
         padding: 3px 4px;
+        left: 8px;
+        width: calc(100vw - 70px);
+        border-radius: 12px;
     }
     
     .nav-item {
         padding: 3px 6px;
         font-size: 7px;
         letter-spacing: 0.2px;
+        border-radius: 10px;
     }
 
     .home h1 {
@@ -617,9 +675,27 @@ section {
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
+    .langSelector {
+        top: 5px;
+        right: 10px;
+    }
+
+    .lang-toggle {
+        padding: 2px;
+        border-radius: 12px;
+    }
+
+    .lang-option {
+        padding: 3px 8px;
+        font-size: 8px;
+        min-width: 30px;
+    }
+
     .nav {
         top: 5px;
         padding: 3px 6px;
+        left: 10px;
+        width: calc(100vw - 100px);
     }
     
     .nav-item {
@@ -644,6 +720,26 @@ section {
     }
 }
 
+@media (hover : none) and (pointer: coarse) {
+    .lang-option {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lang-toggle {
+        padding: 2px;
+    }
+
+    .nav-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .star,
     .cursor,
@@ -655,8 +751,10 @@ section {
     .logo:hover,
     .profile-image:hover,
     .nav-item:hover,
-    .lang-toggle:hover {
+    .lang-toggle:hover,
+    .lang-option {
         transform: none;
+        transition: none;
     }
 }
 
