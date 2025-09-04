@@ -2,7 +2,6 @@ const STARS_COUNT = 50;
 const PARTICLE_PROBABILITY = 0.98;
 
 let currentLang = "en";
-let isAnimating = false;
 let lastScrollTime = 0;
 let lastMouseTime = 0;
 
@@ -130,149 +129,6 @@ function initParticleSystem() {
     });
 }
 
-function typeWriter(element, text, speed = 100, callback = null) {
-    element.innerHTML = '';
-    let i = 0;
-
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else {
-            if (callback) callback();
-        }
-    }
-
-    type();
-}
-
-function animateTerminalContent() {
-    if (isAnimating) return;
-    isAnimating = true;
-    
-    const terminalLines = document.querySelectorAll('.terminal-content > div');
-    
-    terminalLines.forEach((line, index) => {
-        if (!line.getAttribute('data-original-content')) {
-            line.setAttribute('data-original-content', line.innerHTML);
-        }
-        line.innerHTML = '';
-        line.style.display = 'none';
-    });
-
-    let currentLineIndex = 0;
-
-    function animateNextLine() {
-        if (currentLineIndex >= terminalLines.length) {
-            setTimeout(() => {
-                terminalLines.forEach(line => {
-                    line.innerHTML = '';
-                    line.style.display = 'none';
-                });
-                currentLineIndex = 0;
-                isAnimating = false;
-                setTimeout(() => animateTerminalContent(), 5000);
-            }, 2000);
-            return;
-        }
-
-        const line = terminalLines[currentLineIndex];
-        const originalContent = line.getAttribute('data-original-content');
-
-        line.style.display = 'block';
-
-        if (originalContent.includes('cursor') || originalContent.includes('_')) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = originalContent;
-            const cursorEl = tempDiv.querySelector('.cursor');
-            if (cursorEl) cursorEl.remove();
-            const textWithoutCursor = tempDiv.textContent || tempDiv.innerText || '';
-            
-            line.innerHTML = '<span class="text-content"></span><span class="cursor">_</span>';
-            const textSpan = line.querySelector('.text-content');
-
-            typeWriter(textSpan, textWithoutCursor, 120, () => {
-                setTimeout(() => {
-                    currentLineIndex++;
-                    animateNextLine();
-                }, 1000);
-            });
-        } else {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = originalContent;
-            const textContent = tempDiv.textContent || tempDiv.innerText || '';
-            
-            typeWriter(line, textContent, 80, () => {
-                setTimeout(() => {
-                    currentLineIndex++;
-                    animateNextLine();
-                }, 600);
-            });
-        }
-    }
-
-    animateNextLine();
-}
-
-function initTerminalAnimation() {
-    setTimeout(() => {
-        animateTerminalContent();
-    }, 1000);
-}
-
-function initTerminalControls() {
-    const terminal = document.querySelector('.terminal');
-    const closeButton = document.querySelector('.terminal-close');
-    const minimizeButton = document.querySelector('.terminal-minimize');
-    
-    if (closeButton) {
-        closeButton.addEventListener('click', function() {
-            // Ferme complètement le terminal
-            terminal.classList.add('minimized');
-        });
-    }
-    
-    if (minimizeButton) {
-        minimizeButton.addEventListener('click', function() {
-            // Bascule entre réduit et normal (pas fermé)
-            if (terminal.classList.contains('collapsed')) {
-                terminal.classList.remove('collapsed');
-                minimizeButton.title = 'Minimiser';
-                minimizeButton.style.transform = 'rotate(0deg)';
-            } else {
-                terminal.classList.add('collapsed');
-                minimizeButton.title = 'Restaurer';
-                minimizeButton.style.transform = 'rotate(180deg)';
-            }
-        });
-    }
-    
-    // Optionnel : double-clic sur le header pour minimiser/restaurer
-    const terminalHeader = document.querySelector('.terminal-header');
-    if (terminalHeader) {
-        terminalHeader.addEventListener('dblclick', function() {
-            if (minimizeButton) {
-                minimizeButton.click();
-            }
-        });
-    }
-    
-    // Optionnel : bouton pour restaurer le terminal quand il est fermé
-    document.addEventListener('keydown', function(e) {
-        // Ctrl + T pour réouvrir le terminal (si fermé)
-        if (e.ctrlKey && e.key === 't') {
-            e.preventDefault();
-            terminal.classList.remove('minimized');
-            terminal.classList.remove('collapsed');
-            if (minimizeButton) {
-                minimizeButton.title = 'Minimiser';
-                minimizeButton.style.transform = 'rotate(0deg)';
-            }
-        }
-    });
-}
-
 function init() {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initializePortfolio);
@@ -287,8 +143,6 @@ function initializePortfolio() {
     try {
         loadLanguage(currentLang).then(() => {
             console.log('✅ Languages loaded');
-            initTerminalAnimation();
-            console.log('✅ Terminal animation started');
         });
         
         document.querySelectorAll('.lang-option').forEach(option => {
@@ -310,16 +164,13 @@ function initializePortfolio() {
         });
 
         createStars();
-        console.log('✅ Stars generated (optimized)');
+        console.log('✅ Stars generated');
 
         initParallaxEffect();
-        console.log('✅ Parallax effect enabled (optimized)');
+        console.log('✅ Parallax effect enabled');
 
         initParticleSystem();
-        console.log('✅ Particle system enabled (optimized)');
-
-        initTerminalControls();
-        console.log('✅ Terminal controls initialized');
+        console.log('✅ Particle system enabled');
 
         console.log('🌟 Optimized portfolio operational!');
     } catch (error) {
