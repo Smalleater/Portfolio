@@ -225,13 +225,10 @@ section {
     transform: scale(1.02);
 }
 
-#home {
+.home {
     display: block;
     text-align: center;
     padding-top: 120px;
-}
-
-.home {
     text-align: center;
     position: relative;
 }
@@ -387,7 +384,7 @@ section {
 }
 
 @media (max-width: 1564px) {
-    #home {
+    .home {
         padding-top: 150px;
     }
 }
@@ -421,7 +418,7 @@ section {
         letter-spacing: 0.8px;
     }
 
-    #home {
+    .home {
         padding-top: 140px;
     }
 }
@@ -472,7 +469,7 @@ section {
         font-size: 1.1rem;
     }
 
-    #home {
+    .home {
         padding-top: 90px;
     }
 
