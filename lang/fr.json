@@ -5,6 +5,7 @@
     "nav_tech_projects": "⚙️ Projets techniques",
     "nav_resume": "📄 CV",
     "nav_contact": "📡 Contact",
+
     "home_name": "Adrien CLAUDE",
     "home_network_gameplay_programmer": "Programmeur Réseau et Gameplay",
     "home_presentation": "Bienvenue ! Je m'appelle Adrien, 20 ans, passionné par l'espace, la programmation et les jeux vidéo. Je me concentre sur le développement de jeux, surtout la programmation réseau, pour créer des expériences multijoueur fluides et captivantes.",
@@ -21,5 +22,7 @@
     "home_cmake": "CMake",
     "home_github": "Github",
     "home_tortoise_svn": "TortoiseSVN",
-    "home_doxygen": "Doxygen"
+    "home_doxygen": "Doxygen",
+
+    "resume_cv_src": "cv/CV_Adrien_Claude_FR.webp"
 }

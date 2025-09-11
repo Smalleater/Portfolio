@@ -30,6 +30,13 @@ async function loadLanguage(lang) {
             }
         });
 
+        document.querySelectorAll("[data-i18n-img]").forEach(el => {
+            const key = el.getAttribute("data-i18n-img");
+            if (translation[key]) {
+                el.src = translation[key];
+            }
+        });
+
         document.documentElement.setAttribute("lang", lang);
     } catch (error) {
         console.error('Error loading language:', error);
