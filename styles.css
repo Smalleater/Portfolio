@@ -497,12 +497,6 @@ section {
     }
 }
 
-@media (max-width: 720px) {
-    #home {
-        padding-top: 140px;
-    }
-}
-
 @media (max-width: 480px) {
     .langSelector {
         top: 10px;
