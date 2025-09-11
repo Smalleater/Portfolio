@@ -228,6 +228,7 @@ section {
 #home {
     display: block;
     text-align: center;
+    padding-top: 120px;
 }
 
 .home {
@@ -385,6 +386,12 @@ section {
     }
 }
 
+@media (max-width: 1564px) {
+    #home {
+        padding-top: 150px;
+    }
+}
+
 @media (max-width: 1024px) {
     .nav {
         padding: 6px 10px;
@@ -412,6 +419,10 @@ section {
         font-size: 10px;
         min-width: 38px;
         letter-spacing: 0.8px;
+    }
+
+    #home {
+        padding-top: 140px;
     }
 }
 
@@ -461,6 +472,10 @@ section {
         font-size: 1.1rem;
     }
 
+    #home {
+        padding-top: 90px;
+    }
+
     .home h1 {
         font-size: 2.5rem;
     }
@@ -479,6 +494,12 @@ section {
 
     body::before {
         background: none;
+    }
+}
+
+@media (max-width: 720px) {
+    #home {
+        padding-top: 140px;
     }
 }
 
@@ -560,7 +581,7 @@ section {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 371px) {
     .langSelector {
         top: 8px;
         right: 8px;
@@ -609,64 +630,6 @@ section {
 
     .logos-container {
         gap: 10px;
-    }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-    .langSelector {
-        top: 5px;
-        right: 10px;
-    }
-
-    .lang-toggle {
-        padding: 2px;
-        border-radius: 12px;
-    }
-
-    .lang-option {
-        padding: 3px 8px;
-        font-size: 8px;
-        min-width: 30px;
-    }
-
-    .nav {
-        top: 5px;
-        padding: 3px 6px;
-        left: 10px;
-        width: calc(100vw - 100px);
-    }
-    
-    .nav-item {
-        padding: 3px 8px;
-        font-size: 8px;
-    }
-
-    section {
-        padding: 40px 20px;
-    }
-
-    .home h1 {
-        font-size: 2rem;
-    }
-}
-
-@media (hover : none) and (pointer: coarse) {
-    .lang-option {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .lang-toggle {
-        padding: 2px;
-    }
-
-    .nav-item {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
 
