@@ -37,6 +37,13 @@ async function loadLanguage(lang) {
             }
         });
 
+        document.querySelectorAll("[data-i18n-href]").forEach(el => {
+            const key = el.getAttribute("data-i18n-href");
+            if (translation[key]) {
+                el.href = translation[key];
+            }
+        });
+
         document.documentElement.setAttribute("lang", lang);
     } catch (error) {
         console.error('Error loading language:', error);

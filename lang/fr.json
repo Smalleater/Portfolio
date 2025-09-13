@@ -24,5 +24,7 @@
     "home_tortoise_svn": "TortoiseSVN",
     "home_doxygen": "Doxygen",
 
-    "resume_resume_src": "resume/CV_Adrien_Claude.webp"
+    "resume_webp": "resume/CV_Adrien_Claude.webp",
+    "resume_download_file": "",
+    "resume_download_text": "Télécharger"
 }
