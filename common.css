@@ -294,7 +294,7 @@ body::before {
     }
 
     .social-link {
-        top: 70px;
+        top: 60px;
         right: 15px;
     }
 
@@ -337,7 +337,7 @@ body::before {
     }
 
     .social-link {
-        top: 62px;
+        top: 50px;
         right: 15px;
         gap: 6px;
     }
@@ -403,7 +403,7 @@ body::before {
     }
 
     .social-link {
-        top: 55px;
+        top: 40px;
         right: 10px;
         gap: 5px;
     }
@@ -461,14 +461,14 @@ body::before {
     }
 
     .social-link {
-        top: 50px;
+        top: 30px;
         right: 8px;
         gap: 4px;
     }
 
     .social-logo {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
         padding: 4px;
     }
 
