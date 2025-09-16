@@ -192,6 +192,9 @@ body::before {
     white-space: nowrap;
     position: relative;
     min-width: fit-content;
+    transition: all 0.3s ease, 
+                background 0.4s ease, 
+                box-shadow 0.4s ease;
 }
 
 .nav-item::before {
@@ -220,6 +223,28 @@ body::before {
     opacity: 1;
 }
 
+.nav-item.active {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.3), rgba(0, 255, 255, 0.15));
+    color: #4facfe;
+    border-color: rgba(79, 172, 254, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3),
+                0 0 20px rgba(79, 172, 254, 0.1);
+}
+
+.nav-item.active::before {
+    opacity: 1;
+    background: #00ffff;
+    box-shadow: 0 0 6px #00ffff;
+}
+
+.nav-item.active:hover {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.4), rgba(0, 255, 255, 0.2));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 172, 254, 0.4),
+                0 0 25px rgba(79, 172, 254, 0.15);
+}
+
 .language-particle {
     position: fixed;
     width: 2px;
@@ -229,7 +254,7 @@ body::before {
     pointer-events: none;
     z-index: 9999;
     opacity: 0.6;
-    animation: optimizedLanguageParticle 0.6s ease-out forwards;
+    animation: languageParticle 0.6s ease-out forwards;
 }
 
 .mouse-particle {
@@ -241,7 +266,7 @@ body::before {
     pointer-events: none;
     z-index: -1;
     opacity: 0.4;
-    animation: optimizedParticleFade 0.8s ease-out forwards;
+    animation: larticleFade 0.8s ease-out forwards;
 }
 
 @keyframes simpleTwinkle {
@@ -253,7 +278,7 @@ body::before {
     }
 }
 
-@keyframes optimizedLanguageParticle {
+@keyframes languageParticle {
     0% {
         opacity: 0.6;
         transform: scale(1);
@@ -264,7 +289,7 @@ body::before {
     }
 }
 
-@keyframes optimizedParticleFade {
+@keyframes larticleFade {
     0% { 
         opacity: 0.4; 
         transform: scale(1); 

@@ -25,12 +25,6 @@
     animation: resumeSlideIn 0.8s ease-out;
 }
 
-.resume img:hover {
-    border-color: rgba(79, 172, 254, 0.5);
-    box-shadow: 0 12px 40px rgba(79, 172, 254, 0.2);
-    transform: translateY(-5px) scale(1.02);
-}
-
 .resume button {
     background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 255, 255, 0.15));
     border: 2px solid rgba(79, 172, 254, 0.4);
@@ -200,7 +194,6 @@
         transition: none;
     }
 
-    .resume img:hover,
     .resume button:hover {
         transform: none;
     }
