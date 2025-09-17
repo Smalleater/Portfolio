@@ -1,0 +1,135 @@
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-title {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #4facfe 0%, #00ffff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+    margin-bottom: 15px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+.contact-card {
+    background: rgba(13, 17, 23, 0.8);
+    border: 1px solid rgba(79, 172, 254, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(79, 172, 254, 0.05), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.contact-card:hover {
+    border-color: rgba(79, 172, 254, 0.5);
+    box-shadow: 0 8px 32px rgba(79, 172, 254, 0.15);
+    transform: translateY(-5px) scale(1.02);
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 255, 255, 0.1));
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #4facfe;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon svg {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.contact-label {
+    font-size: 0.9rem;
+    color: rgba(201, 209, 217, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contact-value {
+    font-size: 1.2rem;
+    color: #c9d1d9;
+    text-align: center;
+    word-break: break-all;
+    transition: color 0.3s ease;
+}
+
+.contact-card:hover .contact-value {
+    color: #4facfe;
+}
+
+.contact-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    position: relative;
+}
+
+.contact-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4facfe, #00ffff);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.contact-card:hover .contact-link::after {
+    width: 100%;
+}
