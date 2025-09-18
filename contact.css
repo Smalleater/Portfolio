@@ -137,3 +137,157 @@
 .contact-card:hover .contact-link::after {
     width: 100%;
 }
+
+@media (max-width: 1024px) {
+    .contact-container {
+        margin-top: 90px;
+        padding: 30px 15px;
+    }
+
+    .contact-title {
+        padding: 2.5rem;
+    }
+
+    .contact-card {
+        padding: 25px;
+    }
+}
+
+@media (max-Width: 768px) {
+    .contact-container {
+        margin-top: 80px;
+        padding: 25px 15px;
+    }
+
+    .contact-header {
+        margin-bottom: 30px;
+    }
+
+    .contact-title {
+        font-size: 2.2rem;
+    }
+
+    .contact-grid {
+        gap: 25px;
+    }
+
+    .contact-card {
+        padding: 20px;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .contact-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .contact-label {
+        font-size: 0.8rem;
+        letter-spacing: 1.2px;
+    }
+
+    .contact-value {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        margin-top: 70px;
+        padding: 20px 10px;
+    }
+
+    .contact-header {
+        margin-bottom: 25px;
+    }
+
+    .contact-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-grid {
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .contact-card {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+    }
+
+    .contact-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-label {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+
+    .contact-value {
+        font-size: 1rem;
+        word-break: break-all;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-container {
+        margin-top: 60px;
+        padding: 15px 8px;
+    }
+
+    .contact-title {
+        font-size: 1.6rem;
+    }
+
+    .contact-card {
+        padding: 12px;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .contact-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .contact-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.8px;
+    }
+
+    .contact-value {
+        font-size: 0.9rem;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .contact-card:hover {
+        transform: none;
+        border-color: rgba(79, 172, 254, 0.3);
+        box-shadow: 0 4px 16px rgba(79, 172, 254, 0.1);
+    }
+
+    .contact-card:active {
+        transform: translateY(-2px) scale(1.01);
+        border-color: rgba(79, 172, 254, 0.5);
+        box-shadow: 0 8px 32px rgba(79, 172, 254, 0.15);
+    }
+}
