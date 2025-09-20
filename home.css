@@ -17,8 +17,8 @@ section {
     height: 200px;
     margin: 0 auto;
     border-radius: 50%;
-    border: 3px solid #00ffff;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    border: 3px solid #4facfe;
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
     transition: transform 0.3s ease;
     overflow: hidden;
     will-change: transform;
@@ -32,8 +32,9 @@ section {
 }
 
 .profile-image:hover {
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
     transform: scale(1.02);
+    border-color: #00ffff;
 }
 
 .home {
@@ -46,15 +47,33 @@ section {
 
 .home h1 {
     font-size: 4rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #4facfe 0%, #00ffff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.presentation-text h2 {
+    font-size: 1.5rem;
+    color: rgba(201, 209, 217, 0.8);
+    margin-bottom: 30px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .home p {
     font-size: 1.2rem;
-    color: #cccccc;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
+    color: rgba(201, 209, 217, 0.8);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+    text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .skills-section {
@@ -71,12 +90,13 @@ section {
 }
 
 .skill-category h3 {
-    color: #00ffff;
+    color: #4facfe;
     font-size: 1.2rem;
     margin-bottom: 25px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.2);
 }
 
 .logos-container {
@@ -94,8 +114,8 @@ section {
 .logo {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.15));
-    border: 2px solid rgba(0, 255, 255, 0.4);
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 255, 255, 0.1));
+    border: 2px solid rgba(79, 172, 254, 0.4);
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -110,18 +130,18 @@ section {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.2));
+    filter: drop-shadow(0 0 4px rgba(79, 172, 254, 0.2));
     transition: transform 0.3s ease;
 }
 
 .logo:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.2);
-    border-color: #00ffff;
+    box-shadow: 0 6px 15px rgba(79, 172, 254, 0.2);
+    border-color: #4facfe;
 }
 
 .logo:hover img {
-    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+    filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.4));
     transform: scale(1.05);
 }
 
@@ -131,17 +151,19 @@ section {
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.9);
-    color: #00ffff;
+    background: rgba(13, 17, 23, 0.9);
+    color: #4facfe;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 12px;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    border: 1px solid #00ffff;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    backdrop-filter: blur(10px);
     z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .logo-item:hover::after {
@@ -167,6 +189,19 @@ section {
 
     .home h1 {
         font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 30px;
+    }
+
+    .presentation-text h2 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+    }
+
+    .home p {
+        font-size: 1.1rem;
+        max-width: 90%;
+        line-height: 1.6;
     }
 
     section {
@@ -190,11 +225,22 @@ section {
 @media (max-width: 480px) {
     .home h1 {
         font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .presentation-text h2 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        letter-spacing: 0.8px;
     }
 
     .home p {
         font-size: 1rem;
         padding: 0 10px;
+        max-width: 95%;
+        line-height: 1.5;
+        letter-spacing: 0.3px;
     }
 
     section {
@@ -215,6 +261,20 @@ section {
 @media (max-width: 360px) {
     .home h1 {
         font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    .presentation-text h2 {
+        font-size: 1rem;
+        margin-bottom: 18px;
+        letter-spacing: 0.6px;
+    }
+
+    .home p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        letter-spacing: 0.2px;
     }
 
     .skills-section {
