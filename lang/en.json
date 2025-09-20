@@ -24,9 +24,24 @@
     "home_tortoise_svn": "TortoiseSVN",
     "home_doxygen": "Doxygen",
 
+    "about_name": "Adrien CLAUDE",
+    "about_title": "Network and Gameplay Programmer",
+    "about_description_1": "Since my childhood, I have been fascinated by virtual worlds and the endless possibilities they offer. What began as hours spent playing turned into a passion for understanding how they work and creating new ones. I enjoy designing experiences that connect people, especially through network programming and multiplayer games, tackling technical challenges, and bringing new ideas to life.",
+    "about_description_2": "Over time, another passion has taken hold of me: space. Its immensity and mysteries fuel my imagination and influence the way I approach creation. For me, virtual worlds and the universe share the same essence: exploring the unknown, pushing boundaries, and inventing new horizons.",
+    "about_passion_icon": "❤️",
+    "about_passion_title": "What I’m passionate about",
+    "about_passion_content": "I grew up fascinated by virtual worlds and the infinity of space. Today, nothing makes me happier than creating experiences that connect people or dreaming about the mysteries of the universe. Every technical challenge overcome, every idea brought to life, is a small victory that drives me to explore even further.",
+    "about_objective_icon": "🎯",
+    "about_objective_title": "My goals",
+    "about_objective_content": "My goal is to combine my passions for virtual worlds and space by creating immersive experiences. I aim to design projects where network programming enables players to connect and explore new universes together.",
+
     "resume_webp": "resume/Resume_Adrien_Claude.webp",
     "resume_download_file": "resume/Resume_Adrien_Claude.jpg",
     "resume_download_text": "Download",
 
-    "contact_contact_me": "Contact me"
+    "contact_contact_me": "Contact me",
+    "contact_email_text": "Email",
+    "contact_email_address": "adrien.claude.88470@gmail.com",
+    "contact_linkedin_text": "LinkedIn",
+    "contact_linkedin_link": "linkedin.com/in/adrien-claude"
 }

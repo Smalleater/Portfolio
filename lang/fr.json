@@ -24,9 +24,24 @@
     "home_tortoise_svn": "TortoiseSVN",
     "home_doxygen": "Doxygen",
 
+    "about_name": "Adrien CLAUDE",
+    "about_title": "Programmeur Réseau et Gameplay",
+    "about_description_1": "Depuis mon enfance, je suis fasciné par les mondes virtuels et les possibilités infinies qu’ils offrent. Ce qui a commencé par des heures passées à jouer s’est transformé en une passion pour comprendre leur fonctionnement et en créer de nouveaux. J’aime concevoir des expériences qui connectent les gens, en particulier à travers la programmation réseau et les jeux multijoueur, relever des défis techniques et donner vie à des idées nouvelles.",
+    "about_description_2": "Au fil du temps, une autre passion s’est imposée à moi : l’espace. Son immensité et ses mystères nourrissent mon imagination et influencent ma manière d’aborder la création. Pour moi, les mondes virtuels et l’univers partagent une même essence : explorer l’inconnu, repousser les limites et inventer de nouveaux horizons.",
+    "about_passion_icon": "❤️",
+    "about_passion_title": "Ce qui me passionne",
+    "about_passion_content": "J’ai grandi fasciné par les mondes virtuels et l’infini de l’espace. Aujourd’hui, rien ne me rend plus heureux que de créer des expériences qui connectent les gens ou de rêver aux mystères de l’univers. Chaque défi technique relevé, chaque idée qui prend vie, c’est une petite victoire qui me pousse à explorer toujours plus loin.",
+    "about_objective_icon": "🎯",
+    "about_objective_title": "Mes objectifs",
+    "about_objective_content": "Mon objectif est de réunir mes passions pour les mondes virtuels et l’espace en créant des expériences immersives. Je souhaite concevoir des projets où la programmation réseau permet à des joueurs de se connecter et d’explorer ensemble de nouveaux univers.",
+
     "resume_webp": "resume/CV_Adrien_Claude.webp",
     "resume_download_file": "resume/CV_Adrien_Claude.jpg",
     "resume_download_text": "Télécharger",
 
-    "contact_contact_me": "Contactez-moi"
+    "contact_contact_me": "Contactez-moi",
+    "contact_email_text": "Email",
+    "contact_adress_email": "adrien.claude.88470@gmail.com",
+    "contact_linkedin_text": "LinkedIn",
+    "contact_linkedin_link": "linkedin.com/in/adrien-claude"
 }
