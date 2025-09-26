@@ -13,7 +13,7 @@ const cache = {
 
 async function loadLanguage(lang) {
     try {
-        const response = await fetch(`./lang/${lang}.json`);
+        const response = await fetch(`./langs/${lang}.json`);
         const translation = await response.json();
 
         document.querySelectorAll("[data-i18n]").forEach(el => {
