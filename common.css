@@ -5,14 +5,16 @@
 }
 
 body {
-    font-family: 'Courier New', monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: radial-gradient(ellipse at center, #0d1117 0%, #000000 100%);
-    color: #c9d1d9;
+    color: #e6edf3;
     overflow-x: hidden;
     cursor: crosshair;
     position: relative;
     word-wrap: break-word;
     hyphens: auto;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
 body::before {
@@ -71,12 +73,13 @@ body::before {
 }
 
 .lang-option {
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: 20px;
-    color: rgba(201, 209, 217, 0.6);
+    color: rgba(230, 237, 243, 0.7);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
@@ -270,12 +273,13 @@ body::before {
 .nav-item {
     background: transparent;
     border: 1px solid transparent;
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: 18px;
-    color: rgba(201, 209, 217, 0.8);
+    color: rgba(230, 237, 243, 0.85);
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
@@ -815,4 +819,39 @@ body::before {
 .nav-item,
 .lang-option {
     contain: layout style paint;
+}
+
+/* Améliorations globales pour la lisibilité */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+p {
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
+/* Amélioration du contraste pour les liens */
+a {
+    color: #4facfe;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #00ffff;
+}
+
+/* Amélioration de la lisibilité pour les petits textes */
+small, .small-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(230, 237, 243, 0.8);
+}
+
+/* Sélection de texte améliorée */
+::selection {
+    background: rgba(79, 172, 254, 0.3);
+    color: #ffffff;
 }

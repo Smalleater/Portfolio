@@ -16,14 +16,16 @@
 }
 
 .contact-title {
-    font-size: 3rem;
+    font-size: 3.2rem;
     background: linear-gradient(135deg, #4facfe 0%, #00ffff 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
     margin-bottom: 15px;
-    line-height: 1.2;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .contact-grid {
@@ -94,21 +96,24 @@
 }
 
 .contact-label {
-    font-size: 0.9rem;
-    color: rgba(201, 209, 217, 0.6);
+    font-size: 1rem;
+    color: rgba(230, 237, 243, 0.7);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 10px;
     text-align: center;
+    font-weight: 500;
 }
 
 .contact-value {
-    font-size: 1.2rem;
-    color: #c9d1d9;
+    font-size: 1.3rem;
+    color: #e6edf3;
     text-align: center;
     word-break: break-all;
     transition: color 0.3s ease;
-    line-height: 1.4;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.2px;
 }
 
 .contact-card:hover .contact-value {
