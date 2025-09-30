@@ -35,6 +35,12 @@
     "about_objective_title": "My goals",
     "about_objective_content": "My goal is to combine my passions for virtual worlds and space by creating immersive experiences. I aim to design projects where network programming enables players to connect and explore new universes together.",
 
+    "gameProjects_separator": "→",
+
+    "gameProjects_title_suna": "Suna",
+    "gameProjects_start_suna": "Jan 2025",
+    "gameProjects_end_suna": "May 2025",
+
     "resume_webp": "resume/Resume_Adrien_Claude.webp",
     "resume_download_file": "resume/Resume_Adrien_Claude.jpg",
     "resume_download_text": "Download",
