@@ -143,6 +143,66 @@ function initParticleSystem() {
     });
 }
 
+function initHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien de navigation
+        const navItems = navMenu.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Gérer le sélecteur de langue mobile
+        const mobileLangOptions = navMenu.querySelectorAll('.mobile-lang-option');
+        mobileLangOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.stopPropagation(); // Empêcher la fermeture du menu
+                
+                if (this.classList.contains('active')) return;
+                
+                // Mettre à jour l'état actif pour le sélecteur mobile
+                mobileLangOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                // Synchroniser avec le sélecteur desktop s'il existe
+                const desktopOptions = document.querySelectorAll('.lang-option');
+                desktopOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    if (opt.getAttribute('data-lang') === this.getAttribute('data-lang')) {
+                        opt.classList.add('active');
+                    }
+                });
+
+                const newLang = this.getAttribute('data-lang');
+                currentLang = newLang;
+                loadLanguage(currentLang);
+
+                createLanguageParticles(this);
+            });
+        });
+
+        // Fermer le menu quand on clique à l'extérieur
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+}
+
 function init() {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initializePortfolio);
@@ -166,8 +226,16 @@ function initializePortfolio() {
                 document.querySelectorAll('.lang-option').forEach(opt => {
                     opt.classList.remove('active');
                 });
-
                 this.classList.add('active');
+
+                // Synchroniser avec le sélecteur mobile
+                const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
+                mobileLangOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    if (opt.getAttribute('data-lang') === this.getAttribute('data-lang')) {
+                        opt.classList.add('active');
+                    }
+                });
 
                 const newLang = this.getAttribute('data-lang');
                 currentLang = newLang;
@@ -176,6 +244,9 @@ function initializePortfolio() {
                 createLanguageParticles(this);
             });
         });
+
+        initHamburgerMenu();
+        console.log('✅ Hamburger menu initialized');
 
         createStars();
         console.log('✅ Stars generated');

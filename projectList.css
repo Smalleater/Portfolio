@@ -380,6 +380,45 @@
     }
 }
 
+@media (max-width: 320px) {
+    .projects-grid {
+        padding: 65px 10px 15px;
+        gap: 15px;
+    }
+    
+    .project-card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+    
+    .project-image {
+        aspect-ratio: 16 / 9;
+        border-radius: 6px;
+    }
+    
+    .project-title {
+        font-size: 1.1em;
+        margin-bottom: 6px;
+    }
+    
+    .project-skills {
+        gap: 4px;
+        margin-bottom: 8px;
+    }
+    
+    .skill-tag {
+        padding: 2px 5px;
+        font-size: 0.6em;
+        letter-spacing: 0.2px;
+        border-radius: 6px;
+    }
+    
+    .project-description {
+        font-size: 0.85em;
+        line-height: 1.4;
+    }
+}
+
 .project-card {
     animation: slideInUp 0.6s ease-out forwards;
     opacity: 0;

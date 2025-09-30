@@ -138,3 +138,127 @@
         padding: 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 0 15px;
+        margin-top: 80px;
+    }
+
+    .profile-section {
+        padding: 15px;
+    }
+
+    .profile-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .name {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .content-grid {
+        gap: 20px;
+    }
+
+    .content-card {
+        padding: 15px;
+    }
+
+    .content-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .content-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-container {
+        padding: 0 12px;
+        margin-top: 70px;
+    }
+
+    .profile-section {
+        padding: 12px;
+    }
+
+    .profile-image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .title {
+        font-size: 0.9rem;
+    }
+
+    .content-card {
+        padding: 12px;
+    }
+
+    .content-card h3 {
+        font-size: 1rem;
+    }
+
+    .content-card p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .about-container {
+        padding: 0 10px;
+        margin-top: 60px;
+    }
+
+    .profile-section {
+        padding: 10px;
+    }
+
+    .profile-image img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .name {
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+    }
+
+    .title {
+        font-size: 0.8rem;
+    }
+
+    .content-grid {
+        gap: 15px;
+    }
+
+    .content-card {
+        padding: 10px;
+    }
+
+    .content-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .content-card p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+}

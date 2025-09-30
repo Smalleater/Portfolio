@@ -278,6 +278,52 @@
     }
 }
 
+@media (max-width: 320px) {
+    .contact-container {
+        margin-top: 50px;
+        padding: 12px 6px;
+    }
+
+    .contact-title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .contact-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-grid {
+        gap: 12px;
+    }
+
+    .contact-card {
+        padding: 10px;
+    }
+
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        margin-bottom: 8px;
+    }
+
+    .contact-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .contact-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.6px;
+        margin-bottom: 4px;
+    }
+
+    .contact-value {
+        font-size: 0.85rem;
+    }
+}
+
 @media (hover: none) and (pointer: coarse) {
     .contact-card:hover {
         transform: none;

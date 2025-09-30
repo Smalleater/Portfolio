@@ -187,6 +187,33 @@
     }
 }
 
+@media (max-width: 320px) {
+    .resume {
+        padding: 0 8px;
+        margin-top: 60px;
+    }
+
+    .resume img {
+        max-width: 95%;
+        border-radius: 8px;
+    }
+
+    .resume button {
+        padding: 6px 15px;
+        font-size: 9px;
+        min-width: 100px;
+        border-radius: 16px;
+        letter-spacing: 0.4px;
+        margin-top: 15px;
+    }
+
+    .resume button::before {
+        width: 8px;
+        height: 8px;
+        left: 8px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .resume img,
     .resume button {
