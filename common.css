@@ -60,8 +60,8 @@ body::before {
     display: flex;
     background: rgba(13, 17, 23, 0.9);
     border: 1px solid rgba(79, 172, 254, 0.3);
-    border-radius: 25px;
-    padding: 4px;
+    border-radius: 20px;
+    padding: 2px;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
@@ -73,18 +73,18 @@ body::before {
 }
 
 .lang-option {
-    padding: 10px 18px;
+    padding: 6px 12px;
     border-radius: 20px;
     color: rgba(230, 237, 243, 0.7);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     position: relative;
     background: transparent;
-    min-width: 40px;
+    min-width: 32px;
     text-align: center;
 }
 
@@ -393,6 +393,49 @@ body::before {
     }
 }
 
+@media (max-width: 820px) {
+    .langSelector {
+        top: 15px;
+        right: 12px;
+    }
+
+    .lang-toggle {
+        padding: 2px;
+        border-radius: 16px;
+    }
+
+    .lang-option {
+        padding: 4px 8px;
+        font-size: 9px;
+        min-width: 26px;
+        letter-spacing: 0.2px;
+    }
+
+    .social-link {
+        top: 50px;
+        right: 12px;
+    }
+
+    .social-logo {
+        width: 34px;
+        height: 34px;
+        padding: 5px;
+    }
+
+    .nav {
+        padding: 6px 10px;
+        gap: 1px;
+        max-width: calc(100vw - 120px);
+        font-size: 10px;
+    }
+    
+    .nav-item {
+        padding: 6px 8px;
+        font-size: 10px;
+        letter-spacing: 0.2px;
+    }
+}
+
 @media (max-width: 1024px) {
     .langSelector {
         top: 20px;
@@ -400,15 +443,15 @@ body::before {
     }
 
     .lang-toggle {
-        padding: 4px;
-        border-radius: 20px;
+        padding: 2px;
+        border-radius: 18px;
     }
 
     .lang-option {
-        padding: 6px 14px;
-        font-size: 10px;
-        min-width: 38px;
-        letter-spacing: 0.8px;
+        padding: 4px 10px;
+        font-size: 9px;
+        min-width: 30px;
+        letter-spacing: 0.4px;
     }
 
     .social-link {
@@ -447,7 +490,7 @@ body::before {
         flex-direction: row;
         gap: 8px;
         z-index: 999;
-        margin-right: 20px; /* Espace avec la navigation */
+        margin-right: 20px;
     }
 
     .social-logo {
@@ -801,7 +844,6 @@ body::before {
         border-radius: 6px;
     }
 
-    /* Améliorer la lisibilité sur très petits écrans */
     * {
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
@@ -821,7 +863,6 @@ body::before {
     contain: layout style paint;
 }
 
-/* Améliorations globales pour la lisibilité */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
@@ -833,7 +874,6 @@ p {
     margin-bottom: 1em;
 }
 
-/* Amélioration du contraste pour les liens */
 a {
     color: #4facfe;
     transition: color 0.3s ease;
@@ -843,14 +883,12 @@ a:hover {
     color: #00ffff;
 }
 
-/* Amélioration de la lisibilité pour les petits textes */
 small, .small-text {
     font-size: 0.9rem;
     line-height: 1.5;
     color: rgba(230, 237, 243, 0.8);
 }
 
-/* Sélection de texte améliorée */
 ::selection {
     background: rgba(79, 172, 254, 0.3);
     color: #ffffff;

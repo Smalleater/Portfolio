@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Adrien CLAUDE</title>
     <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="resume.css">
+    <link rel="stylesheet" href="projectList.css">
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -47,16 +47,36 @@
             <a href="index.html" class="nav-item" data-i18n="nav_home"></a>
             <a href="about.html" class="nav-item" data-i18n="nav_about"></a>
             <a href="gameProjects.html" class="nav-item" data-i18n="nav_game_projects"></a>
-            <a href="technicalProjects.html" class="nav-item" data-i18n="nav_tech_projects"></a>
-            <a href="resume.html" class="nav-item active" data-i18n="nav_resume"></a>
+            <a href="technicalProjects.html" class="nav-item active" data-i18n="nav_tech_projects"></a>
+            <a href="resume.html" class="nav-item" data-i18n="nav_resume"></a>
             <a href="contact.html" class="nav-item" data-i18n="nav_contact"></a>
         </div>
     </nav>
 
-    <div class="resume">
-        <img data-i18n-img="resume_webp" alt="resume">
-        <a data-i18n-href="resume_download_file" download>
-            <button type="button" data-i18n="resume_download_text"></button>
+    <div class="projects-grid">
+        <a href="index.html" class="project-card">
+            <img src="images/fairy_fields/fairy_fields_01.webp" alt="fairy_fields_01" class="project-image">
+            <div class="project-header">
+                <h2 class="project-title">Fairy Fields</h2>
+                <div class="project-dates">
+                    <span class="date-start">Oct. 2024</span>
+                    <span class="date-separator">→</span>
+                    <span class="date-end">Dec. 2024</span>
+                </div>
+            </div>
+            <div class="team-size">
+                <span class="team-icon">👥</span>
+                <span>9 people</span>
+            </div>
+            <div class="skills-list">
+                <span class="skill-tag">Unity</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">Android</span>
+                <span class="skill-tag">Farm Gane</span>
+            </div>
+            <p class="project-description">
+                Mobile farming game with a magical twist. Build your farm to grow plants and transform them into potions to fulfill the villagers requests. You can also trade by buying and selling items with other players.
+            </p>
         </a>
     </div>
 </body>
