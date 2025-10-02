@@ -5,6 +5,23 @@ let currentLang = "en";
 let lastScrollTime = 0;
 let lastMouseTime = 0;
 
+function getInitialLanguage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    
+    if (urlLang && (urlLang === 'fr' || urlLang === 'en')) {
+        localStorage.setItem('selectedLanguage', urlLang);
+        return urlLang;
+    }
+    
+    const savedLang = localStorage.getItem('selectedLanguage');
+    if (savedLang && (savedLang === 'fr' || savedLang === 'en')) {
+        return savedLang;
+    }
+    
+    return 'en';
+}
+
 const cache = {
     stars: null,
     profileImage: null,
@@ -45,9 +62,30 @@ async function loadLanguage(lang) {
         });
 
         document.documentElement.setAttribute("lang", lang);
+        
+        localStorage.setItem('selectedLanguage', lang);
+        currentLang = lang;
+        
+        updateLanguageSelectors(lang);
     } catch (error) {
         console.error('Error loading language:', error);
     }
+}
+
+function updateLanguageSelectors(lang) {
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.remove('active');
+        if (opt.getAttribute('data-lang') === lang) {
+            opt.classList.add('active');
+        }
+    });
+    
+    document.querySelectorAll('.mobile-lang-option').forEach(opt => {
+        opt.classList.remove('active');
+        if (opt.getAttribute('data-lang') === lang) {
+            opt.classList.add('active');
+        }
+    });
 }
 
 function createLanguageParticles(element) {
@@ -153,7 +191,6 @@ function initHamburgerMenu() {
             navMenu.classList.toggle('active');
         });
 
-        // Fermer le menu quand on clique sur un lien de navigation
         const navItems = navMenu.querySelectorAll('.nav-item');
         navItems.forEach(item => {
             item.addEventListener('click', function() {
@@ -162,38 +199,19 @@ function initHamburgerMenu() {
             });
         });
 
-        // Gérer le sélecteur de langue mobile
         const mobileLangOptions = navMenu.querySelectorAll('.mobile-lang-option');
         mobileLangOptions.forEach(option => {
             option.addEventListener('click', function(e) {
-                e.stopPropagation(); // Empêcher la fermeture du menu
+                e.stopPropagation();
                 
                 if (this.classList.contains('active')) return;
                 
-                // Mettre à jour l'état actif pour le sélecteur mobile
-                mobileLangOptions.forEach(opt => {
-                    opt.classList.remove('active');
-                });
-                this.classList.add('active');
-
-                // Synchroniser avec le sélecteur desktop s'il existe
-                const desktopOptions = document.querySelectorAll('.lang-option');
-                desktopOptions.forEach(opt => {
-                    opt.classList.remove('active');
-                    if (opt.getAttribute('data-lang') === this.getAttribute('data-lang')) {
-                        opt.classList.add('active');
-                    }
-                });
-
                 const newLang = this.getAttribute('data-lang');
-                currentLang = newLang;
-                loadLanguage(currentLang);
-
+                loadLanguage(newLang);
                 createLanguageParticles(this);
             });
         });
 
-        // Fermer le menu quand on clique à l'extérieur
         document.addEventListener('click', function(e) {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 hamburger.classList.remove('active');
@@ -215,6 +233,8 @@ function initializePortfolio() {
     console.log('🚀 Initializing optimized portfolio...');
 
     try {
+        currentLang = getInitialLanguage();
+        
         loadLanguage(currentLang).then(() => {
             console.log('✅ Languages loaded');
         });
@@ -223,24 +243,8 @@ function initializePortfolio() {
             option.addEventListener('click', function(e) {
                 if (this.classList.contains('active')) return;
                 
-                document.querySelectorAll('.lang-option').forEach(opt => {
-                    opt.classList.remove('active');
-                });
-                this.classList.add('active');
-
-                // Synchroniser avec le sélecteur mobile
-                const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
-                mobileLangOptions.forEach(opt => {
-                    opt.classList.remove('active');
-                    if (opt.getAttribute('data-lang') === this.getAttribute('data-lang')) {
-                        opt.classList.add('active');
-                    }
-                });
-
                 const newLang = this.getAttribute('data-lang');
-                currentLang = newLang;
-                loadLanguage(currentLang);
-
+                loadLanguage(newLang);
                 createLanguageParticles(this);
             });
         });
