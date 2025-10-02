@@ -36,10 +36,24 @@
     "about_objective_content": "My goal is to combine my passions for virtual worlds and space by creating immersive experiences. I aim to design projects where network programming enables players to connect and explore new universes together.",
 
     "gameProjects_separator": "→",
+    "gameProjects_team_icon": "👥",
+
+    "gameProjects_skill_c#": "C#",
+
+    "gameProjects_skill_unity": "Unity",
+    "gameProjects_skill_dots": "DOTS",
+
+    "gameProjects_skill_windows": "Windows",
+
+    "gameProjects_skill_multiplayer": "Multiplayer",
+    "gameProjects_skill_fps": "FPS",
+    "gameProjects_skill_competitive": "Competitive",
 
     "gameProjects_title_suna": "Suna",
     "gameProjects_start_suna": "Jan. 2025",
     "gameProjects_end_suna": "May 2025",
+    "gameProjects_team_size_suna": "10 people",
+    "gameProjects_description_suna": "Competitive FPS in the style of Counter-Strike. You play as either the Natives or the Corporates. One team’s objective is to plant the Harvester, while the opposing team must prevent it from being planted or defuse it if it has already been deployed.",
 
     "resume_webp": "resume/Resume_Adrien_Claude.webp",
     "resume_download_file": "resume/Resume_Adrien_Claude.jpg",
