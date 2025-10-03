@@ -113,13 +113,47 @@ function createStars() {
 
     for (let i = 0; i < STARS_COUNT; i++) {
         const star = document.createElement('div');
-        star.className = 'star';
+        
+        const starType = Math.random();
+        let starClass = 'star';
+        
+        if (starType < 0.1) {
+            starClass += ' star-bright';
+        } else if (starType < 0.25) {
+            starClass += ' star-medium';
+        } else if (starType < 0.4) {
+            starClass += ' star-small';
+        } else {
+            starClass += ' star-dim';
+        }
+        
+        star.className = starClass;
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
-        const size = Math.random() * 2 + 1;
+        
+        let size;
+        if (starClass.includes('bright')) {
+            size = Math.random() * 1.5 + 2.5;
+        } else if (starClass.includes('medium')) {
+            size = Math.random() * 1 + 1.8;
+        } else if (starClass.includes('small')) {
+            size = Math.random() * 0.8 + 1;
+        } else {
+            size = Math.random() * 0.6 + 0.8;
+        }
+        
         star.style.width = size + 'px';
         star.style.height = size + 'px';
-        star.style.animationDelay = Math.random() * 3 + 's';
+        
+        star.style.animationDelay = Math.random() * 6 + 's';
+        star.style.animationDuration = (Math.random() * 4 + 3) + 's';
+        
+        const baseTransformX = (Math.random() - 0.5) * 2;
+        const baseTransformY = (Math.random() - 0.5) * 2;
+        star.dataset.baseTransformX = baseTransformX;
+        star.dataset.baseTransformY = baseTransformY;
+        star.style.transform = `translate(${baseTransformX}px, ${baseTransformY}px)`;
+        
         fragment.appendChild(star);
     }
     
@@ -137,8 +171,11 @@ function initParallaxEffect() {
         
         cache.stars.forEach((star, index) => {
             if (index % 4 === 0) {
-                const speed = 0.1;
-                star.style.transform = `translateY(${scrolled * speed}px)`;
+                const speed = star.classList.contains('star-bright') ? 0.15 : 
+                             star.classList.contains('star-medium') ? 0.12 : 0.08;
+                const baseX = parseFloat(star.dataset.baseTransformX) || 0;
+                const baseY = parseFloat(star.dataset.baseTransformY) || 0;
+                star.style.transform = `translate(${baseX}px, ${baseY + scrolled * speed}px)`;
             }
         });
 
@@ -154,7 +191,7 @@ function initParallaxEffect() {
             requestAnimationFrame(updateParallax);
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 function createParticle(x, y) {
