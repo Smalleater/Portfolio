@@ -1,9 +1,7 @@
-const STARS_COUNT = 50;
-const PARTICLE_PROBABILITY = 0.98;
+const STARS_COUNT = 10;
 
 let currentLang = "en";
 let lastScrollTime = 0;
-let lastMouseTime = 0;
 
 function getInitialLanguage() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -21,12 +19,6 @@ function getInitialLanguage() {
     
     return 'en';
 }
-
-const cache = {
-    stars: null,
-    profileImage: null,
-    scrollHeight: null
-};
 
 async function loadLanguage(lang) {
     try {
@@ -89,22 +81,7 @@ function updateLanguageSelectors(lang) {
 }
 
 function createLanguageParticles(element) {
-    const rect = element.getBoundingClientRect();
-    for (let i = 0; i < 2; i++) {
-        setTimeout(() => {
-            const particle = document.createElement('div');
-            particle.className = 'language-particle';
-            particle.style.left = (rect.left + rect.width/2) + 'px';
-            particle.style.top = (rect.top + rect.height/2) + 'px';
-            document.body.appendChild(particle);
-
-            setTimeout(() => {
-                if (particle.parentNode) {
-                    particle.parentNode.removeChild(particle);
-                }
-            }, 600);
-        }, i * 100);
-    }
+    console.log('Language changed - particles disabled for performance');
 }
 
 function createStars() {
@@ -114,108 +91,29 @@ function createStars() {
     for (let i = 0; i < STARS_COUNT; i++) {
         const star = document.createElement('div');
         
-        const starType = Math.random();
-        let starClass = 'star';
-        
-        if (starType < 0.1) {
-            starClass += ' star-bright';
-        } else if (starType < 0.25) {
-            starClass += ' star-medium';
-        } else if (starType < 0.4) {
-            starClass += ' star-small';
-        } else {
-            starClass += ' star-dim';
-        }
-        
-        star.className = starClass;
+        star.className = 'star';
         star.style.left = Math.random() * 100 + '%';
         star.style.top = Math.random() * 100 + '%';
-        
-        let size;
-        if (starClass.includes('bright')) {
-            size = Math.random() * 1.5 + 2.5;
-        } else if (starClass.includes('medium')) {
-            size = Math.random() * 1 + 1.8;
-        } else if (starClass.includes('small')) {
-            size = Math.random() * 0.8 + 1;
-        } else {
-            size = Math.random() * 0.6 + 0.8;
-        }
-        
-        star.style.width = size + 'px';
-        star.style.height = size + 'px';
-        
-        star.style.animationDelay = Math.random() * 6 + 's';
-        star.style.animationDuration = (Math.random() * 4 + 3) + 's';
-        
-        const baseTransformX = (Math.random() - 0.5) * 2;
-        const baseTransformY = (Math.random() - 0.5) * 2;
-        star.dataset.baseTransformX = baseTransformX;
-        star.dataset.baseTransformY = baseTransformY;
-        star.style.transform = `translate(${baseTransformX}px, ${baseTransformY}px)`;
+        star.style.width = '2px';
+        star.style.height = '2px';
         
         fragment.appendChild(star);
     }
     
     starsContainer.appendChild(fragment);
-    
-    cache.stars = document.querySelectorAll('.star');
-    cache.profileImage = document.querySelector('.profile-image');
 }
 
 function initParallaxEffect() {
-    let ticking = false;
-    
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        
-        cache.stars.forEach((star, index) => {
-            if (index % 4 === 0) {
-                const speed = star.classList.contains('star-bright') ? 0.15 : 
-                             star.classList.contains('star-medium') ? 0.12 : 0.08;
-                const baseX = parseFloat(star.dataset.baseTransformX) || 0;
-                const baseY = parseFloat(star.dataset.baseTransformY) || 0;
-                star.style.transform = `translate(${baseX}px, ${baseY + scrolled * speed}px)`;
-            }
-        });
-
-        if (cache.profileImage) {
-            cache.profileImage.style.transform = `translateY(${scrolled * 0.05}px)`;
-        }
-        
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    }, { passive: true });
+    console.log('✅ Parallax disabled for memory optimization');
+    return;
 }
 
 function createParticle(x, y) {
-    const particle = document.createElement('div');
-    particle.className = 'mouse-particle';
-    particle.style.left = x + 'px';
-    particle.style.top = y + 'px';
-    document.body.appendChild(particle);
-
-    setTimeout(() => {
-        if (particle.parentNode) {
-            particle.parentNode.removeChild(particle);
-        }
-    }, 800);
+    return;
 }
 
 function initParticleSystem() {
-    document.addEventListener('mousemove', function(e) {
-        const now = Date.now();
-        if (now - lastMouseTime > 200 && Math.random() > PARTICLE_PROBABILITY) {
-            createParticle(e.clientX, e.clientY);
-            lastMouseTime = now;
-        }
-    });
+    console.log('✅ Minimal system initialized');
 }
 
 function initHamburgerMenu() {
@@ -266,8 +164,40 @@ function init() {
     }
 }
 
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-load');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-load');
+        });
+    }
+}
+
+window.addEventListener('beforeunload', function() {
+    console.log('🧹 Cleaning up before page unload');
+});
+
 function initializePortfolio() {
-    console.log('🚀 Initializing optimized portfolio...');
+    console.log('🚀 Initializing lightweight portfolio...');
 
     try {
         currentLang = getInitialLanguage();
@@ -290,13 +220,16 @@ function initializePortfolio() {
         console.log('✅ Hamburger menu initialized');
 
         createStars();
-        console.log('✅ Stars generated');
+        console.log('✅ 10 minimal stars generated');
 
         initParallaxEffect();
         console.log('✅ Parallax effect enabled');
 
         initParticleSystem();
         console.log('✅ Particle system enabled');
+
+        initLazyLoading();
+        console.log('✅ Lazy loading initialized');
 
         console.log('🌟 Optimized portfolio operational!');
     } catch (error) {
