@@ -39,21 +39,55 @@
     "gameProjects_team_icon": "👥",
 
     "gameProjects_skill_c#": "C#",
+    "gameProjects_skill_c++": "C++",
+    "gameProjects_skill_c": "C",
 
     "gameProjects_skill_unity": "Unity",
     "gameProjects_skill_dots": "DOTS",
 
+    "gameProjects_skill_sfml": "SFML",
+    "gameProjects_skill_csfml": "CSFML",
+
     "gameProjects_skill_windows": "Windows",
+    "gameProjects_skill_android": "Android",
 
     "gameProjects_skill_multiplayer": "Multiplayer",
     "gameProjects_skill_fps": "FPS",
     "gameProjects_skill_competitive": "Competitive",
+    "gameProjects_skill_farm_gane": "Farm Gane",
+    "gameProjects_skill_roguelike": "Roguelike",
+    "gameProjects_skill_board_game": "Board Game",
+    "gameProjects_skill_turn_based_tactics": "Turn-based Tactics",
 
     "gameProjects_title_suna": "Suna",
     "gameProjects_start_suna": "Jan. 2025",
     "gameProjects_end_suna": "May 2025",
     "gameProjects_team_size_suna": "10 people",
     "gameProjects_description_suna": "Competitive FPS in the style of Counter-Strike. You play as either the Natives or the Corporates. One team’s objective is to plant the Harvester, while the opposing team must prevent it from being planted or defuse it if it has already been deployed.",
+
+    "gameProjects_title_fairy_fields": "Fairy Fields",
+    "gameProjects_start_fairy_fields": "Oct. 2024",
+    "gameProjects_end_fairy_fields": "Dec. 2024",
+    "gameProjects_team_size_fairy_fields": "9 people",
+    "gameProjects_description_fairy_fields": "Mobile farming game with a magical twist. Build your farm to grow plants and transform them into potions to fulfill the villagers requests. You can also trade by buying and selling items with other players.",
+
+    "gameProjects_title_shattered_soul": "Shattered Soul",
+    "gameProjects_start_shattered_soul": "Jan. 2024",
+    "gameProjects_end_shattered_soul": "May. 2024",
+    "gameProjects_team_size_shattered_soul": "9 people",
+    "gameProjects_description_shattered_soul": "In this 2D top-down roguelike, you play as a knightess whose soul ascends toward Divinity upon death. To contain this newfound power, she must defeat a god and claim her body as a vessel.",
+
+    "gameProjects_title_solar_storm": "Solar Storm",
+    "gameProjects_start_solar_storm": "Oct. 2023",
+    "gameProjects_end_solar_storm": "Dec. 2023",
+    "gameProjects_team_size_solar_storm": "8 people",
+    "gameProjects_description_solar_storm": "In this board game, you must work together as a team to escape your ship, which is drifting straight into a solar storm. To survive, you’ll need to collect metal to build shuttles, while also producing food and water. But beware if you run out of either, you’ll be forced to say goodbye to one of your own.",
+
+    "gameProjects_title_land_of_hope": "Land Of Hope",
+    "gameProjects_start_land_of_hope": "Apr. 2023",
+    "gameProjects_end_land_of_hope": "Juin 2023",
+    "gameProjects_team_size_land_of_hope": "9 people",
+    "gameProjects_description_land_of_hope": "In this turn-based tactical game, your objective is to conquer the Bad Lands. You’ll begin by choosing your hero and soldiers, then move your troops across a tactical map, with combat inspired by Slay the Spire.",
 
     "resume_webp": "resume/Resume_Adrien_Claude.webp",
     "resume_download_file": "resume/Resume_Adrien_Claude.jpg",
