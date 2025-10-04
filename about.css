@@ -66,16 +66,6 @@
     font-weight: 400;
 }
 
-.description {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: rgba(230, 237, 243, 0.95);
-    max-width: 850px;
-    margin: 0 auto;
-    font-weight: 400;
-    letter-spacing: 0.3px;
-}
-
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
