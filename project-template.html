@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Adrien CLAUDE</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="project-detail.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="langSelector">
+        <div class="lang-toggle">
+            <div class="lang-option active" data-lang="en">EN</div>
+            <div class="lang-option" data-lang="fr">FR</div>
+        </div>
+    </div>
+
+    <div class="social-link">
+        <a href="https://www.linkedin.com/in/adrien-claude/" target="_blank">
+            <div class="social-logo">
+                <img src="logos/linkedin_logo.webp">
+            </div>
+        </a>
+        <a href="https://github.com/Smalleater" target="_blank">
+            <div class="social-logo">
+                <img src="logos/github_logo.webp">
+            </div>
+        </a>
+    </div>
+
+    <nav class="nav">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+            <div class="mobile-lang-selector">
+                <div class="mobile-lang-toggle">
+                    <div class="mobile-lang-option active" data-lang="en">EN</div>
+                    <div class="mobile-lang-option" data-lang="fr">FR</div>
+                </div>
+            </div>
+            <a href="index.html" class="nav-item" data-i18n="nav_home"></a>
+            <a href="about.html" class="nav-item" data-i18n="nav_about"></a>
+            <a href="gameProjects.html" class="nav-item" data-i18n="nav_game_projects"></a>
+            <a href="technicalProjects.html" class="nav-item" data-i18n="nav_tech_projects"></a>
+            <a href="resume.html" class="nav-item" data-i18n="nav_resume"></a>
+            <a href="contact.html" class="nav-item" data-i18n="nav_contact"></a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Bouton de retour -->
+        <div class="back-navigation">
+            <a href="gameProjects.html" class="back-btn" data-i18n="project_back_to_projects">← Retour aux projets</a>
+        </div>
+
+        <!-- En-tête du projet -->
+        <section class="project-header">
+            <div class="project-title-container">
+                <h1 class="project-title" data-i18n="project_title">Nom du Projet</h1>
+                <div class="project-subtitle" data-i18n="project_subtitle">Sous-titre ou description courte</div>
+            </div>
+            
+            <div class="project-meta">
+                <div class="project-status">
+                    <span class="status-badge status-completed" data-i18n="project_status_completed">Terminé</span>
+                </div>
+                <div class="project-date" data-i18n="project_date">2023 - 2024</div>
+                <div class="project-team">
+                    <span class="team-icon">👥</span>
+                    <span data-i18n="project_team_size">Équipe de 4 personnes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image principale ou galerie -->
+        <section class="project-gallery">
+            <div class="main-image">
+                <img src="images/project_example/project_main.webp" alt="Image principale du projet" class="project-image">
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="images/project_example/project_01.webp" alt="Screenshot 1" class="thumbnail active">
+                <img src="images/project_example/project_02.webp" alt="Screenshot 2" class="thumbnail">
+                <img src="images/project_example/project_03.webp" alt="Screenshot 3" class="thumbnail">
+                <img src="images/project_example/project_04.webp" alt="Screenshot 4" class="thumbnail">
+            </div>
+        </section>
+
+        <!-- Description du projet -->
+        <section class="project-description">
+            <h2 data-i18n="project_overview_title">Aperçu du projet</h2>
+            <div class="description-content">
+                <p data-i18n="project_description_1">
+                    Description principale du projet. Expliquez ici le concept, l'objectif et ce qui rend ce projet unique.
+                    Cette section doit donner une vue d'ensemble claire de ce que fait le projet.
+                </p>
+                <p data-i18n="project_description_2">
+                    Deuxième paragraphe avec plus de détails sur les fonctionnalités principales, 
+                    les défis techniques relevés ou l'expérience utilisateur proposée.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technologies utilisées -->
+        <section class="project-technologies">
+            <h2 data-i18n="project_tech_title">Technologies utilisées</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <img src="logos/unity_logo.webp" alt="Unity">
+                    <span>Unity</span>
+                </div>
+                <div class="tech-item">
+                    <img src="logos/csharp_logo.webp" alt="C#">
+                    <span>C#</span>
+                </div>
+                <div class="tech-item">
+                    <img src="logos/github_logo.webp" alt="GitHub">
+                    <span>GitHub</span>
+                </div>
+                <div class="tech-item">
+                    <img src="logos/visual_studio_logo.webp" alt="Visual Studio">
+                    <span>Visual Studio</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fonctionnalités principales -->
+        <section class="project-features">
+            <h2 data-i18n="project_features_title">Fonctionnalités principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 data-i18n="project_feature_1_title">Fonctionnalité 1</h3>
+                    <p data-i18n="project_feature_1_desc">Description de la première fonctionnalité importante du projet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 data-i18n="project_feature_2_title">Fonctionnalité 2</h3>
+                    <p data-i18n="project_feature_2_desc">Description de la deuxième fonctionnalité importante du projet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 data-i18n="project_feature_3_title">Fonctionnalité 3</h3>
+                    <p data-i18n="project_feature_3_desc">Description de la troisième fonctionnalité importante du projet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3 data-i18n="project_feature_4_title">Fonctionnalité 4</h3>
+                    <p data-i18n="project_feature_4_desc">Description de la quatrième fonctionnalité importante du projet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Défis techniques -->
+        <section class="project-challenges">
+            <h2 data-i18n="project_challenges_title">Défis techniques rencontrés</h2>
+            <div class="challenges-list">
+                <div class="challenge-item">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">🧩</span>
+                        <h3 data-i18n="project_challenge_1_title">Défi technique 1</h3>
+                    </div>
+                    <p data-i18n="project_challenge_1_desc">Description du premier défi technique rencontré pendant le développement.</p>
+                    
+                    <!-- Code screenshot optionnel -->
+                    <div class="code-showcase">
+                        <div class="code-image-container">
+                            <img src="images/project_example/code_challenge_1.webp" alt="Code solution pour le défi 1" class="code-image">
+                            <div class="code-caption" data-i18n="project_challenge_1_code_caption">Solution implémentée pour résoudre ce défi</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="challenge-item">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">⚙️</span>
+                        <h3 data-i18n="project_challenge_2_title">Défi technique 2</h3>
+                    </div>
+                    <p data-i18n="project_challenge_2_desc">Description du deuxième défi technique rencontré pendant le développement.</p>
+                    
+                    <!-- Code screenshot optionnel -->
+                    <div class="code-showcase">
+                        <div class="code-image-container">
+                            <img src="images/project_example/code_challenge_2.webp" alt="Code solution pour le défi 2" class="code-image">
+                            <div class="code-caption" data-i18n="project_challenge_2_code_caption">Extrait de code montrant la solution</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="challenge-item">
+                    <div class="challenge-header">
+                        <span class="challenge-icon">🔄</span>
+                        <h3 data-i18n="project_challenge_3_title">Défi technique 3</h3>
+                    </div>
+                    <p data-i18n="project_challenge_3_desc">Description du troisième défi technique rencontré pendant le développement.</p>
+                    
+                    <!-- Sans code screenshot pour montrer la flexibilité -->
+                    <div class="challenge-solution">
+                        <h4 data-i18n="project_challenge_3_solution_title">Solution adoptée :</h4>
+                        <p data-i18n="project_challenge_3_solution_desc">Explication détaillée de la solution mise en place pour résoudre ce défi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apprentissages -->
+        <section class="project-learnings">
+            <h2 data-i18n="project_learnings_title">Ce que j'ai appris</h2>
+            <div class="learnings-content">
+                <p data-i18n="project_learnings_desc">
+                    Décrivez ici les principales compétences acquises, les leçons apprises et comment ce projet 
+                    a contribué à votre développement en tant que développeur.
+                </p>
+                <ul class="learnings-list">
+                    <li data-i18n="project_learning_1">Premier apprentissage important</li>
+                    <li data-i18n="project_learning_2">Deuxième apprentissage important</li>
+                    <li data-i18n="project_learning_3">Troisième apprentissage important</li>
+                    <li data-i18n="project_learning_4">Quatrième apprentissage important</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navigation vers d'autres projets -->
+        <section class="project-navigation">
+            <h2 data-i18n="project_other_projects_title">Autres projets</h2>
+            <div class="other-projects">
+                <a href="#" class="other-project-card">
+                    <img src="images/project_example/project_thumb.webp" alt="Projet précédent">
+                    <div class="other-project-info">
+                        <h3 data-i18n="project_previous_title">Projet précédent</h3>
+                        <p data-i18n="project_previous_desc">Description courte du projet précédent</p>
+                    </div>
+                </a>
+                <a href="#" class="other-project-card">
+                    <img src="images/project_example/project_thumb2.webp" alt="Projet suivant">
+                    <div class="other-project-info">
+                        <h3 data-i18n="project_next_title">Projet suivant</h3>
+                        <p data-i18n="project_next_desc">Description courte du projet suivant</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Gestion de la galerie d'images
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.querySelector('.main-image img');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // Retirer la classe active de toutes les miniatures
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                    
+                    // Ajouter la classe active à la miniature cliquée
+                    this.classList.add('active');
+                    
+                    // Changer l'image principale
+                    mainImage.src = this.src;
+                    mainImage.alt = this.alt;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

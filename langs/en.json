@@ -97,5 +97,54 @@
     "contact_email_text": "Email",
     "contact_email_address": "adrien.claude.88470@gmail.com",
     "contact_linkedin_text": "LinkedIn",
-    "contact_linkedin_link": "linkedin.com/in/adrien-claude"
+    "contact_linkedin_link": "linkedin.com/in/adrien-claude",
+
+    "project_back_to_projects": "← Back to projects",
+    "project_title": "Project Name",
+    "project_subtitle": "Subtitle or short description",
+    "project_status_completed": "Completed",
+    "project_status_in_progress": "In Progress",
+    "project_date": "2023 - 2024",
+    "project_team_size": "Team of 4 people",
+    
+    "project_overview_title": "Project Overview",
+    "project_description_1": "Main project description. Explain here the concept, objective and what makes this project unique. This section should give a clear overview of what the project does.",
+    "project_description_2": "Second paragraph with more details about the main features, technical challenges overcome or the user experience offered.",
+    
+    "project_tech_title": "Technologies Used",
+    
+    "project_features_title": "Key Features",
+    "project_feature_1_title": "Feature 1",
+    "project_feature_1_desc": "Description of the first important feature of the project.",
+    "project_feature_2_title": "Feature 2",
+    "project_feature_2_desc": "Description of the second important feature of the project.",
+    "project_feature_3_title": "Feature 3",
+    "project_feature_3_desc": "Description of the third important feature of the project.",
+    "project_feature_4_title": "Feature 4",
+    "project_feature_4_desc": "Description of the fourth important feature of the project.",
+    
+    "project_challenges_title": "Technical Challenges Encountered",
+    "project_challenge_1_title": "Technical Challenge 1",
+    "project_challenge_1_desc": "Description of the first technical challenge encountered during development.",
+    "project_challenge_1_code_caption": "Solution implemented to solve this challenge",
+    "project_challenge_2_title": "Technical Challenge 2",
+    "project_challenge_2_desc": "Description of the second technical challenge encountered during development.",
+    "project_challenge_2_code_caption": "Code excerpt showing the solution",
+    "project_challenge_3_title": "Technical Challenge 3",
+    "project_challenge_3_desc": "Description of the third technical challenge encountered during development.",
+    "project_challenge_3_solution_title": "Solution adopted:",
+    "project_challenge_3_solution_desc": "Detailed explanation of the solution implemented to solve this challenge.",
+    
+    "project_learnings_title": "What I Learned",
+    "project_learnings_desc": "Describe here the main skills acquired, lessons learned and how this project contributed to your development as a developer.",
+    "project_learning_1": "First important learning",
+    "project_learning_2": "Second important learning",
+    "project_learning_3": "Third important learning",
+    "project_learning_4": "Fourth important learning",
+    
+    "project_other_projects_title": "Other Projects",
+    "project_previous_title": "Previous Project",
+    "project_previous_desc": "Short description of the previous project",
+    "project_next_title": "Next Project",
+    "project_next_desc": "Short description of the next project"
 }
