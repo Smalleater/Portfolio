@@ -78,9 +78,31 @@
         </section>
 
         <!-- Image principale ou galerie -->
+        <!-- 
+            Pour afficher une vidéo à la place de l'image principale, remplacez la balise <img> par <video>:
+            <video src="videos/project_example/demo_video.mp4" class="project-video" controls autoplay muted loop>
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+            
+            Assurez-vous d'adapter aussi les miniatures en bas si nécessaire.
+        -->
         <section class="project-gallery">
-            <div class="main-image">
-                <img src="images/project_example/project_main.webp" alt="Image principale du projet" class="project-image">
+            <div class="main-image-container">
+                <button class="gallery-nav gallery-prev" aria-label="Image précédente">
+                    <span>‹</span>
+                </button>
+                <div class="main-image">
+                    <!-- Exemple avec image (par défaut) -->
+                    <img src="images/project_example/project_01.webp" alt="Image principale du projet" class="project-image">
+                    
+                    <!-- Exemple avec vidéo (à décommenter et personnaliser selon vos besoins) -->
+                    <!-- <video src="videos/project_example/demo_video.mp4" class="project-video" controls autoplay muted loop>
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video> -->
+                </div>
+                <button class="gallery-nav gallery-next" aria-label="Image suivante">
+                    <span>›</span>
+                </button>
             </div>
             <div class="thumbnail-gallery">
                 <img src="images/project_example/project_01.webp" alt="Screenshot 1" class="thumbnail active">
@@ -109,27 +131,21 @@
         <section class="project-technologies">
             <h2 data-i18n="project_tech_title">Technologies utilisées</h2>
             <div class="tech-grid">
-                <div class="tech-item">
-                    <img src="logos/unity_logo.webp" alt="Unity">
+                <div class="tech-item tech-no-icon">
                     <span>Unity</span>
                 </div>
-                <div class="tech-item">
-                    <img src="logos/csharp_logo.webp" alt="C#">
+                <div class="tech-item tech-no-icon">
                     <span>C#</span>
                 </div>
-                <div class="tech-item">
-                    <img src="logos/github_logo.webp" alt="GitHub">
+                <div class="tech-item tech-no-icon">
                     <span>GitHub</span>
                 </div>
-                <div class="tech-item">
-                    <img src="logos/visual_studio_logo.webp" alt="Visual Studio">
+                <div class="tech-item tech-no-icon">
                     <span>Visual Studio</span>
                 </div>
-                <!-- Technologie sans logo - juste le nom -->
                 <div class="tech-item tech-no-icon">
                     <span>Netcode</span>
                 </div>
-                <!-- Autre technologie sans logo -->
                 <div class="tech-item tech-no-icon">
                     <span>Mirror Networking</span>
                 </div>
@@ -253,27 +269,5 @@
             </div>
         </section>
     </main>
-
-    <script>
-        // Gestion de la galerie d'images
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainImage = document.querySelector('.main-image img');
-            const thumbnails = document.querySelectorAll('.thumbnail');
-
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    // Retirer la classe active de toutes les miniatures
-                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-                    
-                    // Ajouter la classe active à la miniature cliquée
-                    this.classList.add('active');
-                    
-                    // Changer l'image principale
-                    mainImage.src = this.src;
-                    mainImage.alt = this.alt;
-                });
-            });
-        });
-    </script>
 </body>
 </html>

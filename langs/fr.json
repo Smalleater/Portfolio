@@ -66,13 +66,19 @@
     "contact_linkedin_link": "linkedin.com/in/adrien-claude",
 
     "project_back_to_projects": "← Retour aux projets",
-    "project_title": "Nom du Projet",
     "project_status_completed": "Terminé",
     "project_status_in_progress": "En cours",
+    "project_team_icon": "👥",
+    "project_overview_title": "Aperçu du projet",
+
+    "project_title_suna": "Suna",
+    "project_date_suna": "Jan. 2025 - Mai 2025",
+    "project_team_size_suna": "Équipe de 10 personnes",
+
+    "project_title": "Nom du Projet",
     "project_date": "2023 - 2024",
     "project_team_size": "Équipe de 4 personnes",
     
-    "project_overview_title": "Aperçu du projet",
     "project_description_1": "Description principale du projet. Expliquez ici le concept, l'objectif et ce qui rend ce projet unique. Cette section doit donner une vue d'ensemble claire de ce que fait le projet.",
     "project_description_2": "Deuxième paragraphe avec plus de détails sur les fonctionnalités principales, les défis techniques relevés ou l'expérience utilisateur proposée.",
     
