@@ -53,18 +53,12 @@
 .project-title {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background: linear-gradient(135deg, #58a6ff, #7c3aed);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-}
-
-.project-subtitle {
-    font-size: 1.2rem;
-    color: #8b949e;
-    margin-bottom: 20px;
 }
 
 .project-meta {
@@ -241,6 +235,15 @@
 .tech-item span {
     font-weight: 500;
     color: #e6edf3;
+}
+
+/* Technologie sans logo - juste le texte centré */
+.tech-item.tech-no-icon {
+    justify-content: center;
+}
+
+.tech-item.tech-no-icon span {
+    text-align: center;
 }
 
 /* Fonctionnalités */
