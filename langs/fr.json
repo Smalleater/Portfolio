@@ -68,12 +68,16 @@
     "project_back_to_projects": "← Retour aux projets",
     "project_status_completed": "Terminé",
     "project_status_in_progress": "En cours",
-    "project_team_icon": "👥",
     "project_overview_title": "Aperçu du projet",
+    "project_role_title": "Mon rôle dans le projet",
 
     "project_title_suna": "Suna",
     "project_date_suna": "Jan. 2025 - Mai 2025",
     "project_team_size_suna": "Équipe de 10 personnes",
+    "project_description_suna_1": "Suna est un jeu de tir à la première personne multijoueur compétitif inspiré de Counter-Strike. Dans ce jeu, deux équipes s’affrontent : les Corpos et les Natifs.",
+    "project_description_suna_2": "En tant que Corpo, vous incarnez un robot de combat dont l’objectif est de planter un extracteur ou d’éliminer toute l’équipe ennemie. En tant que Natif, vous êtes l’un des habitants de la planète, et votre mission est de protéger vos ressources en empêchant les Corpos de planter l’extracteur ou en anéantissant leur équipe.",
+    
+
 
     "project_title": "Nom du Projet",
     "project_date": "2023 - 2024",
@@ -81,6 +85,16 @@
     
     "project_description_1": "Description principale du projet. Expliquez ici le concept, l'objectif et ce qui rend ce projet unique. Cette section doit donner une vue d'ensemble claire de ce que fait le projet.",
     "project_description_2": "Deuxième paragraphe avec plus de détails sur les fonctionnalités principales, les défis techniques relevés ou l'expérience utilisateur proposée.",
+    
+    "project_role_position": "Programmeur Réseau et Gameplay",
+    "project_role_duration": "Janvier 2025 - Mai 2025",
+    "project_role_description": "En tant que programmeur réseau et gameplay, j'ai eu la responsabilité de développer l'architecture réseau du jeu et d'implémenter les mécaniques de gameplay multijoueur. Mon travail s'est concentré sur la création d'une expérience fluide et réactive pour tous les joueurs.",
+    "project_role_responsibilities_title": "Responsabilités principales :",
+    "project_role_responsibility_1": "Architecture et implémentation du système de réseau multijoueur",
+    "project_role_responsibility_2": "Développement des mécaniques de gameplay (tir, mouvement, interactions)",
+    "project_role_responsibility_3": "Synchronisation des états de jeu entre les clients",
+    "project_role_responsibility_4": "Optimisation des performances réseau et réduction de la latence",
+    "project_role_responsibility_5": "Intégration et tests des fonctionnalités multijoueur",
     
     "project_tech_title": "Technologies utilisées",
     

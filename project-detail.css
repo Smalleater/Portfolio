@@ -203,6 +203,7 @@
 }
 
 .project-description,
+.project-role,
 .project-technologies,
 .project-features,
 .project-challenges,
@@ -212,6 +213,7 @@
 }
 
 .project-description h2,
+.project-role h2,
 .project-technologies h2,
 .project-features h2,
 .project-challenges h2,
@@ -225,6 +227,7 @@
 }
 
 .project-description h2::before,
+.project-role h2::before,
 .project-technologies h2::before,
 .project-features h2::before,
 .project-challenges h2::before,
@@ -579,5 +582,118 @@
 
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Project Role Section */
+.project-role {
+    background: rgba(13, 17, 23, 0.6);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.role-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.role-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(88, 166, 255, 0.2);
+}
+
+.role-icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(124, 58, 237, 0.1));
+    border: 2px solid rgba(88, 166, 255, 0.3);
+    color: #58a6ff;
+}
+
+.role-info h3 {
+    font-size: 1.5rem;
+    color: #58a6ff;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.role-info p {
+    font-size: 1rem;
+    color: #8b949e;
+    margin: 0;
+    font-style: italic;
+}
+
+.role-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #c9d1d9;
+    margin: 0;
+}
+
+.role-responsibilities h4 {
+    font-size: 1.2rem;
+    color: #e6edf3;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.responsibilities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.responsibilities-list li {
+    position: relative;
+    padding-left: 25px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c9d1d9;
+}
+
+.responsibilities-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #58a6ff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .role-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .role-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.2rem;
+    }
+    
+    .role-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-role {
+        padding: 20px;
     }
 }

@@ -110,6 +110,17 @@
     "project_description_1": "Main project description. Explain here the concept, objective and what makes this project unique. This section should give a clear overview of what the project does.",
     "project_description_2": "Second paragraph with more details about the main features, technical challenges overcome or the user experience offered.",
     
+    "project_role_title": "My Role in the Project",
+    "project_role_position": "Network and Gameplay Programmer",
+    "project_role_duration": "January 2025 - May 2025",
+    "project_role_description": "As a network and gameplay programmer, I was responsible for developing the game's network architecture and implementing multiplayer gameplay mechanics. My work focused on creating a smooth and responsive experience for all players.",
+    "project_role_responsibilities_title": "Main Responsibilities:",
+    "project_role_responsibility_1": "Architecture and implementation of the multiplayer network system",
+    "project_role_responsibility_2": "Development of gameplay mechanics (shooting, movement, interactions)",
+    "project_role_responsibility_3": "Game state synchronization between clients",
+    "project_role_responsibility_4": "Network performance optimization and latency reduction",
+    "project_role_responsibility_5": "Integration and testing of multiplayer features",
+    
     "project_tech_title": "Technologies Used",
     
     "project_features_title": "Key Features",
