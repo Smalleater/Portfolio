@@ -7,7 +7,7 @@
     "nav_contact": "📡 Contact",
 
     "home_name": "Adrien CLAUDE",
-    "home_network_gameplay_programmer": "Programmeur multijoueur et gameplay",
+    "home_network_gameplay_programmer": "Programmeur multijoueur & gameplay",
     "home_presentation": "Bienvenue ! Je m'appelle Adrien, 20 ans, passionné par l'espace, la programmation et les jeux vidéo. Je me concentre sur le développement de jeux, surtout la programmation réseau, pour créer des expériences multijoueur fluides et captivantes.",
     "home_programming_language": "Langage de programmation",
     "home_cpp": "C++",
@@ -25,7 +25,7 @@
     "home_doxygen": "Doxygen",
 
     "about_name": "Adrien CLAUDE",
-    "about_title": "Programmeur multijoueur et gameplay",
+    "about_title": "Programmeur multijoueur & gameplay",
     "about_description_1": "Depuis mon enfance, je suis fasciné par les mondes virtuels et les possibilités infinies qu’ils offrent. Ce qui a commencé par des heures passées à jouer s’est transformé en une passion pour comprendre leur fonctionnement et en créer de nouveaux. J’aime concevoir des expériences qui connectent les gens, en particulier à travers la programmation réseau et les jeux multijoueur, relever des défis techniques et donner vie à des idées nouvelles.",
     "about_description_2": "Au fil du temps, une autre passion s’est imposée à moi : l’espace. Son immensité et ses mystères nourrissent mon imagination et influencent ma manière d’aborder la création. Pour moi, les mondes virtuels et l’univers partagent une même essence : explorer l’inconnu, repousser les limites et inventer de nouveaux horizons.",
     "about_passion_icon": "❤️",
@@ -76,7 +76,8 @@
     "project_team_size_suna": "Équipe de 10 personnes",
     "project_description_suna_1": "Suna est un jeu de tir à la première personne multijoueur compétitif inspiré de Counter-Strike. Dans ce jeu, deux équipes s’affrontent : les Corpos et les Natifs.",
     "project_description_suna_2": "En tant que Corpo, vous incarnez un robot de combat dont l’objectif est de planter un extracteur ou d’éliminer toute l’équipe ennemie. En tant que Natif, vous êtes l’un des habitants de la planète, et votre mission est de protéger vos ressources en empêchant les Corpos de planter l’extracteur ou en anéantissant leur équipe.",
-    
+    "project_role_position_suna": "Programmeur Multijoueur & Gameplay",
+
 
 
     "project_title": "Nom du Projet",
