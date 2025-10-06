@@ -55,6 +55,28 @@
     "gameProjects_team_size_suna": "10 personnes",
     "gameProjects_description_suna": "FPS compétitif dans le style de Counter-Strike. Vous incarnez soit les Natives, soit les Corporates. L’objectif d’une équipe est de poser le Harvester, tandis que l’équipe adverse doit empêcher sa pose ou le désamorcer s’il a déjà été déployé.",
 
+    "project_back_to_projects": "← Retour aux projets",
+    "project_status_completed": "Terminé",
+    "project_status_in_progress": "En cours",
+    "project_overview_title": "Aperçu du projet",
+    "project_role_title": "Mon rôle dans le projet",
+    "project_role_responsibilities_title": "Responsabilités principales :",
+    "project_tech_title": "Technologies utilisées",
+
+    "project_title_suna": "Suna",
+    "project_date_suna": "Jan. 2025 - Mai 2025",
+    "project_team_size_suna": "Équipe de 10 personnes",
+    "project_description_suna_1": "Suna est un jeu de tir à la première personne multijoueur compétitif inspiré de Counter-Strike. Dans ce jeu, deux équipes s’affrontent : les Corpos et les Natifs.",
+    "project_description_suna_2": "En tant que Corpo, vous incarnez un robot de combat dont l’objectif est de planter un extracteur ou d’éliminer toute l’équipe ennemie. En tant que Natif, vous êtes l’un des habitants de la planète, et votre mission est de protéger vos ressources en empêchant les Corpos de planter l’extracteur ou en anéantissant leur équipe.",
+    "project_role_position_suna": "Programmeur Multijoueur & Gameplay",
+    "project_role_description_suna": "En tant que programmeur multijoueur et gameplay, j'ai eu la responsabilité d'implémenter la base du système de tir, la localisation et la gestion des dégâts, ainsi que la création d’un système d’animation hybride combinant l’ECS de Unity et son système d’animation basé sur les GameObjects. J’ai également intégré les animations et assuré la bonne réplication du joueur (déplacements, animations, tirs, dégâts), tout en veillant à ce que le jeu reste jouable malgré un ping conséquent.",
+    "project_role_responsibility_suna_01": "participation à la mise en place de différentes simulations en ECS (client/serveur)",
+    "project_role_responsibility_suna_02": "implémentation de la base du système de tir",
+    "project_role_responsibility_suna_03": "localisation et gestion des dégâts liés au tir des joueurs",
+    "project_role_responsibility_suna_04": "mise en place d’un système d’animation hybride combinant l’ECS de Unity et son système d’animation basé sur les GameObjects",
+    "project_role_responsibility_suna_05": "implémentation des animations",
+    "project_role_responsibility_suna_06": "réplication des mouvements, des animations et des tirs du joueur",
+
     "resume_webp": "resume/CV_Adrien_Claude.webp",
     "resume_download_file": "resume/CV_Adrien_Claude.jpg",
     "resume_download_text": "Télécharger",
@@ -65,20 +87,6 @@
     "contact_linkedin_text": "LinkedIn",
     "contact_linkedin_link": "linkedin.com/in/adrien-claude",
 
-    "project_back_to_projects": "← Retour aux projets",
-    "project_status_completed": "Terminé",
-    "project_status_in_progress": "En cours",
-    "project_overview_title": "Aperçu du projet",
-    "project_role_title": "Mon rôle dans le projet",
-
-    "project_title_suna": "Suna",
-    "project_date_suna": "Jan. 2025 - Mai 2025",
-    "project_team_size_suna": "Équipe de 10 personnes",
-    "project_description_suna_1": "Suna est un jeu de tir à la première personne multijoueur compétitif inspiré de Counter-Strike. Dans ce jeu, deux équipes s’affrontent : les Corpos et les Natifs.",
-    "project_description_suna_2": "En tant que Corpo, vous incarnez un robot de combat dont l’objectif est de planter un extracteur ou d’éliminer toute l’équipe ennemie. En tant que Natif, vous êtes l’un des habitants de la planète, et votre mission est de protéger vos ressources en empêchant les Corpos de planter l’extracteur ou en anéantissant leur équipe.",
-    "project_role_position_suna": "Programmeur Multijoueur & Gameplay",
-
-
 
     "project_title": "Nom du Projet",
     "project_date": "2023 - 2024",
@@ -88,16 +96,12 @@
     "project_description_2": "Deuxième paragraphe avec plus de détails sur les fonctionnalités principales, les défis techniques relevés ou l'expérience utilisateur proposée.",
     
     "project_role_position": "Programmeur Réseau et Gameplay",
-    "project_role_duration": "Janvier 2025 - Mai 2025",
     "project_role_description": "En tant que programmeur réseau et gameplay, j'ai eu la responsabilité de développer l'architecture réseau du jeu et d'implémenter les mécaniques de gameplay multijoueur. Mon travail s'est concentré sur la création d'une expérience fluide et réactive pour tous les joueurs.",
-    "project_role_responsibilities_title": "Responsabilités principales :",
     "project_role_responsibility_1": "Architecture et implémentation du système de réseau multijoueur",
     "project_role_responsibility_2": "Développement des mécaniques de gameplay (tir, mouvement, interactions)",
     "project_role_responsibility_3": "Synchronisation des états de jeu entre les clients",
     "project_role_responsibility_4": "Optimisation des performances réseau et réduction de la latence",
     "project_role_responsibility_5": "Intégration et tests des fonctionnalités multijoueur",
-    
-    "project_tech_title": "Technologies utilisées",
     
     "project_features_title": "Fonctionnalités principales",
     "project_feature_1_title": "Fonctionnalité 1",
