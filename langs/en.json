@@ -5,6 +5,10 @@
     "nav_resume": "📄 Resume",
     "nav_contact": "📡 Contact",
 
+    "featured_projects_title": "Featured Projects",
+    "featured_badge": "Featured",
+    "other_projects_title": "Other Projects",
+
     "home_name": "Adrien CLAUDE",
     "home_network_gameplay_programmer": "Multiplayer & Gameplay Programmer",
     "home_presentation": "Welcome! My name is Adrien, I'm 20 years old, and I'm passionate about space, programming, and video games. I focus on game development, especially network programming, to create smooth and engaging multiplayer experiences.",

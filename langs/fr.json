@@ -5,6 +5,10 @@
     "nav_resume": "📄 CV",
     "nav_contact": "📡 Contact",
 
+    "featured_projects_title": "Projets mis en avant",
+    "featured_badge": "Mis en avant",
+    "other_projects_title": "Autres projets",
+
     "home_name": "Adrien CLAUDE",
     "home_network_gameplay_programmer": "Programmeur multijoueur & gameplay",
     "home_presentation": "Bienvenue ! Je m'appelle Adrien, 20 ans, passionné par l'espace, la programmation et les jeux vidéo. Je me concentre sur le développement de jeux, surtout la programmation réseau, pour créer des expériences multijoueur fluides et captivantes.",
