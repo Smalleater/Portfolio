@@ -58,6 +58,12 @@
     "gameProjects_team_size_suna": "10 personnes",
     "gameProjects_description_suna": "FPS compétitif dans le style de Counter-Strike. Vous incarnez soit les Natives, soit les Corporates. L’objectif d’une équipe est de poser le Harvester, tandis que l’équipe adverse doit empêcher sa pose ou le désamorcer s’il a déjà été déployé.",
 
+    "gameProjects_title_fairy_fields": "Fairy Fields",
+    "gameProjects_start_fairy_fields": "Oct. 2024",
+    "gameProjects_end_fairy_fields": "Déc. 2024",
+    "gameProjects_team_size_fairy_fields": "9 personnes",
+    "gameProjects_description_fairy_fields": "Jeu de ferme mobile avec une touche de magie. Développez votre ferme pour cultiver des plantes et les transformer en potions afin de répondre aux demandes des villageois. Vous pouvez également faire du commerce en achetant et en vendant des objets avec d'autres joueurs.",
+
     "project_back_to_projects": "← Retour aux projets",
     "project_status_completed": "Terminé",
     "project_status_in_progress": "En cours",
