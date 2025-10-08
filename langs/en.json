@@ -52,6 +52,7 @@
     "gameProjects_skill_csfml": "CSFML",
 
     "gameProjects_skill_windows": "Windows",
+    "gameProjects_skill_posix": "POSIX",
     "gameProjects_skill_android": "Android",
 
     "gameProjects_skill_multiplayer": "Multiplayer",
@@ -61,6 +62,16 @@
     "gameProjects_skill_roguelike": "Roguelike",
     "gameProjects_skill_board_game": "Board Game",
     "gameProjects_skill_turn_based_tactics": "Turn-based Tactics",
+
+    "gameProjects_skill_network_engine": "Network Engine",
+    "gameProjects_skill_winsock": "Winsock",
+    "gameProjects_skill_bsd_sockets": "BSD sockets",
+
+    "gameProjects_title_tme": "Travelers Multiplayer Engine",
+    "gameProjects_start_tme": "Jun. 2025",
+    "gameProjects_end_tme": "Today",
+    "gameProjects_team_size_tme": "1 person",
+    "gameProjects_description_tme": "Cross-platform C++ network engine designed to simplify multiplayer game development. It supports both Windows (via Winsock) and POSIX-compliant systems (via BSD sockets).",
 
     "gameProjects_title_suna": "Suna",
     "gameProjects_start_suna": "Jan. 2025",
