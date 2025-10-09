@@ -120,6 +120,8 @@
     "project_role_title": "Mon rôle dans le projet",
     "project_role_responsibilities_title": "Responsabilités principales :",
     "project_tech_title": "Technologies utilisées",
+    "project_features_title": "Fonctionnalités clés",
+    "project_challenges_title": "Défis techniques que j'ai rencontrés",
 
     "project_title_suna": "Suna",
     "project_date_suna": "Jan. 2025 - Mai 2025",
@@ -134,9 +136,18 @@
     "project_role_responsibility_suna_04": "mise en place d’un système d’animation hybride combinant l’ECS de Unity et son système d’animation basé sur les GameObjects",
     "project_role_responsibility_suna_05": "implémentation des animations",
     "project_role_responsibility_suna_06": "réplication des mouvements, des animations et des tirs du joueur",
-
-
-
+    "project_feature_title_suna_01": "Architecture réseaux avec autorité par le serveur",
+    "project_feature_desc_suna_01": "L'architecture réseau sera composée de plusieurs clients et d'un serveur distinct, avec une autorité centralisée assurée par le serveur.",
+    "project_feature_title_suna_02": "Système de Matchmaking",
+    "project_feature_desc_suna_02": "Rassembler automatiquement les joueurs et de former des équipes pour lancer une partie rapidement.",
+    "project_feature_title_suna_03": "Replication et coherance des actions du joueur",
+    "project_feature_desc_suna_03": "Assurer la bonne réplication et la cohérence des déplacements, des animations et des actions du joueur, que ce soit avec un ping faible ou conséquent.",
+    "project_feature_title_suna_04": "Déroulement d'une partie",
+    "project_feature_desc_suna_04": "Met en place tout le déroulement d'une partie : phase d'achat, pose et désamorçage de l'extracteur, gestion des victoires et défaites, et transitions entre les différentes phases.",
+    "project_feature_title_suna_05": "Système d'économie",
+    "project_feature_desc_suna_05": "Gère l'économie du jeu : attribution de l'argent en fonction des actions, achats d'équipement en début de manche et gestion des récompenses ou pénalités selon les résultats.",
+    "project_challenge_title_suna_01": "Système d'animation hybride en réseau",
+    "project_challenge_desc_suna_01": "",
 
     "project_title": "Nom du projet",
     "project_date": "2023 - 2024",
@@ -154,7 +165,6 @@
     "project_role_responsibility_4": "Optimisation des performances réseau et réduction de la latence",
     "project_role_responsibility_5": "Intégration et tests des fonctionnalités multijoueur",
     
-    "project_features_title": "Fonctionnalités clés",
     "project_feature_1_title": "Fonctionnalité 1",
     "project_feature_1_desc": "Description de la première fonctionnalité importante du projet.",
     "project_feature_2_title": "Fonctionnalité 2",
@@ -164,7 +174,6 @@
     "project_feature_4_title": "Fonctionnalité 4",
     "project_feature_4_desc": "Description de la quatrième fonctionnalité importante du projet.",
     
-    "project_challenges_title": "Défis techniques rencontrés",
     "project_challenge_1_title": "Défi technique 1",
     "project_challenge_1_desc": "Description du premier défi technique rencontré pendant le développement.",
     "project_challenge_1_code_caption": "Solution implémentée pour résoudre ce défi",

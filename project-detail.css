@@ -303,11 +303,6 @@
     transform: translateY(-4px);
 }
 
-.feature-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
 .feature-card h3 {
     font-size: 1.3rem;
     margin-bottom: 12px;
@@ -343,10 +338,6 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
-}
-
-.challenge-icon {
-    font-size: 1.5rem;
 }
 
 .challenge-item h3 {
