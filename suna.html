@@ -191,8 +191,51 @@
                     <p data-i18n="project_challenge_desc_suna_01">Description du troisième défi technique rencontré pendant le développement.</p>
                     
                     <div class="challenge-solution">
-                        <h4 data-i18n="project_challenge_3_solution_title">Solution adoptée :</h4>
-                        <p data-i18n="project_challenge_3_solution_desc">Explication détaillée de la solution mise en place pour résoudre ce défi.</p>
+                        <div class="solution-content-wrapper">
+                            <div class="solution-text">
+                                <h4 data-i18n="project_challenge_3_solution_title">Solution adoptée :</h4>
+                                <p data-i18n="project_challenge_3_solution_desc">Explication détaillée de la solution mise en place pour résoudre ce défi.</p>
+                            </div>
+                            
+                            <div class="code-block-container">
+                                <div class="code-block-header">
+                                    <span class="code-language">C#</span>
+                                    <span class="code-label">Example Implementation</span>
+                                </div>
+                                <div class="code-block">
+                                    <pre><code><span class="code-comment">// Example: Optimized ECS System for Player Movement</span>
+<span class="code-keyword">public partial struct</span> <span class="code-class">PlayerMovementSystem</span> : <span class="code-type">ISystem</span>
+{
+    <span class="code-keyword">public void</span> <span class="code-function">OnUpdate</span>(<span class="code-keyword">ref</span> <span class="code-type">SystemState</span> state)
+    {
+        <span class="code-keyword">var</span> deltaTime = <span class="code-type">SystemAPI</span>.Time.DeltaTime;
+        
+        <span class="code-comment">// Query all player entities with movement components</span>
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> (transform, movement, input) <span class="code-keyword">in</span> 
+            <span class="code-type">SystemAPI</span>.<span class="code-function">Query</span>&lt;<span class="code-type">RefRW</span>&lt;<span class="code-type">LocalTransform</span>&gt;, 
+                           <span class="code-type">RefRO</span>&lt;<span class="code-type">MovementData</span>&gt;, 
+                           <span class="code-type">RefRO</span>&lt;<span class="code-type">InputData</span>&gt;&gt;())
+        {
+            <span class="code-comment">// Calculate movement direction</span>
+            <span class="code-keyword">var</span> moveDirection = <span class="code-keyword">new</span> <span class="code-type">float3</span>(
+                input.ValueRO.Horizontal,
+                <span class="code-number">0</span>,
+                input.ValueRO.Vertical
+            );
+            
+            <span class="code-comment">// Apply movement with normalization</span>
+            <span class="code-keyword">if</span> (math.<span class="code-function">lengthsq</span>(moveDirection) > <span class="code-number">0.01f</span>)
+            {
+                moveDirection = math.<span class="code-function">normalize</span>(moveDirection);
+                transform.ValueRW.Position += moveDirection * 
+                    movement.ValueRO.Speed * deltaTime;
+            }
+        }
+    }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
