@@ -68,7 +68,7 @@
     "gameProjects_skill_bsd_sockets": "BSD sockets",
 
     "gameProjects_title_tme": "Travelers Multiplayer Engine",
-    "gameProjects_start_tme": "Jun. 2025",
+    "gameProjects_start_tme": "June 2025",
     "gameProjects_end_tme": "Today",
     "gameProjects_team_size_tme": "1 person",
     "gameProjects_description_tme": "Cross-platform C++ network engine designed to simplify multiplayer game development. It supports both Windows (via Winsock) and POSIX-compliant systems (via BSD sockets).",
