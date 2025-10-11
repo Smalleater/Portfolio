@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work in Progress - Adrien CLAUDE</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="workinprogress.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="langSelector">
+        <div class="lang-toggle">
+            <div class="lang-option active" data-lang="en">EN</div>
+            <div class="lang-option" data-lang="fr">FR</div>
+        </div>
+    </div>
+
+    <div class="social-link">
+        <a href="https://www.linkedin.com/in/adrien-claude/" target="_blank">
+            <div class="social-logo">
+                <img src="logos/linkedin_logo.webp">
+            </div>
+        </a>
+        <a href="https://github.com/Smalleater" target="_blank">
+            <div class="social-logo">
+                <img src="logos/github_logo.webp">
+            </div>
+        </a>
+    </div>
+
+    <nav class="nav">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+            <div class="mobile-lang-selector">
+                <div class="mobile-lang-toggle">
+                    <div class="mobile-lang-option active" data-lang="en">EN</div>
+                    <div class="mobile-lang-option" data-lang="fr">FR</div>
+                </div>
+            </div>
+            <a href="index.html" class="nav-item" data-i18n="nav_home"></a>
+            <a href="about.html" class="nav-item" data-i18n="nav_about"></a>
+            <a href="projects.html" class="nav-item" data-i18n="nav_projects"></a>
+            <a href="resume.html" class="nav-item" data-i18n="nav_resume"></a>
+            <a href="contact.html" class="nav-item" data-i18n="nav_contact"></a>
+        </div>
+    </nav>
+
+    <section class="wip-section">
+        <div class="wip-container">
+            <div class="wip-icon">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1 class="wip-title" data-i18n="wip_title">Work in Progress</h1>
+            <p class="wip-description" data-i18n="wip_description">This page is currently under construction. Check back soon for updates!</p>
+            <div class="wip-links">
+                <a href="index.html" class="wip-button" data-i18n="wip_back_home">Back to Home</a>
+                <a href="projects.html" class="wip-button secondary" data-i18n="wip_view_projects">View Projects</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

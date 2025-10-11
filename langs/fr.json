@@ -198,5 +198,10 @@
     "project_previous_title": "Projet précédent",
     "project_previous_desc": "Courte description du projet précédent",
     "project_next_title": "Projet suivant",
-    "project_next_desc": "Courte description du projet suivant"
+    "project_next_desc": "Courte description du projet suivant",
+
+    "wip_title": "Cette page est en cours de construction",
+    "wip_description": "Nous travaillons pour vous apporter quelque chose d'incroyable. Revenez bientôt pour des mises à jour !",
+    "wip_back_home": "Retour à l'accueil",
+    "wip_view_projects": "Voir les projets"
 }

@@ -1,0 +1,121 @@
+.wip-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.wip-container {
+    max-width: 600px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.wip-icon {
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.wip-icon svg {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 0 20px rgba(88, 166, 255, 0.3));
+}
+
+.wip-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #58a6ff 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wip-description {
+    font-size: 1.2rem;
+    color: #8b949e;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.wip-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wip-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #58a6ff 0%, #7c3aed 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3);
+    border: 2px solid transparent;
+}
+
+.wip-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(88, 166, 255, 0.5);
+}
+
+.wip-button.secondary {
+    background: transparent;
+    border: 2px solid #58a6ff;
+    color: #58a6ff;
+    box-shadow: none;
+}
+
+.wip-button.secondary:hover {
+    background: rgba(88, 166, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.2);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wip-title {
+        font-size: 2rem;
+    }
+
+    .wip-description {
+        font-size: 1rem;
+    }
+
+    .wip-icon svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .wip-links {
+        flex-direction: column;
+    }
+
+    .wip-button {
+        width: 100%;
+    }
+}
