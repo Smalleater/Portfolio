@@ -148,6 +148,8 @@
     "project_feature_desc_suna_05": "Gère l'économie du jeu : attribution de l'argent en fonction des actions, achats d'équipement en début de manche et gestion des récompenses ou pénalités selon les résultats.",
     "project_challenge_title_suna_01": "Système d'animation hybride en réseau",
     "project_challenge_desc_suna_01": "Pour ce projet, nous avons utilisé Unity DOTS, qui remplace le système classique de GameObjects de Unity par un système basé sur des entités (ECS). Étant donné que Unity DOTS est une technologie encore en développement, elle ne dispose pas de système d'animation intégré. L'une de mes responsabilités a donc été de créer un système hybride permettant de connecter l'ECS qui gère les valeurs et états des entités avec le système d'animation traditionnel de Unity, basé sur les GameObjects. Le tout en veillant à assurer une bonne réplication et synchronisation en réseau.",
+    "project_challenge_solution_suna_01_title": "Solution adoptée :",
+    "project_challenge_solution_suna_01_desc": "J'ai développé un système hybride qui utilise des buffers dynamiques pour stocker les paramètres d'animation (float, int, bool, trigger) sous forme de composants ECS avec synchronisation réseau via GhostComponent. Sur le serveur, un système collecte les changements d'état et les stocke dans ces buffers, tandis qu'un autre système les applique à l'Animator Unity traditionnel. Sur le client, le système reçoit automatiquement les données répliquées et met à jour les animations localement. Cette architecture permet une séparation claire entre la logique ECS et le rendu, tout en garantissant une synchronisation fluide des animations entre tous les joueurs connectés.",
 
     "project_title": "Nom du projet",
     "project_date": "2023 - 2024",

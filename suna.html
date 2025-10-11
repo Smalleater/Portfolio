@@ -193,45 +193,190 @@
                     <div class="challenge-solution">
                         <div class="solution-content-wrapper">
                             <div class="solution-text">
-                                <h4 data-i18n="project_challenge_3_solution_title">Solution adoptée :</h4>
-                                <p data-i18n="project_challenge_3_solution_desc">Explication détaillée de la solution mise en place pour résoudre ce défi.</p>
+                                <h4 data-i18n="project_challenge_solution_suna_01_title">Solution adoptée :</h4>
+                                <p data-i18n="project_challenge_solution_suna_01_desc">J'ai développé un système hybride qui utilise des buffers dynamiques pour stocker les paramètres d'animation (float, int, bool, trigger) sous forme de composants ECS avec synchronisation réseau via GhostComponent. Sur le serveur, un système collecte les changements d'état et les stocke dans ces buffers, tandis qu'un autre système les applique à l'Animator Unity traditionnel. Sur le client, le système reçoit automatiquement les données répliquées et met à jour les animations localement. Cette architecture permet une séparation claire entre la logique ECS et le rendu, tout en garantissant une synchronisation fluide des animations entre tous les joueurs connectés.</p>
                             </div>
                             
                             <div class="code-block-container">
                                 <div class="code-block-header">
                                     <span class="code-language">C#</span>
-                                    <span class="code-label">Example Implementation</span>
+                                    <span class="code-label">Networked Hybrid Animation System</span>
                                 </div>
                                 <div class="code-block">
-                                    <pre><code><span class="code-comment">// Example: Optimized ECS System for Player Movement</span>
-<span class="code-keyword">public partial struct</span> <span class="code-class">PlayerMovementSystem</span> : <span class="code-type">ISystem</span>
+                                    <pre><code><span class="code-comment">// Animation Components - Synchronized via Netcode</span>
+<span class="code-keyword">public class</span> <span class="code-class">AnimatorReference</span> : <span class="code-type">IComponentData</span>
 {
+    <span class="code-keyword">public</span> <span class="code-type">Animator</span> Animator;
+}
+
+[<span class="code-type">GhostComponent</span>]
+<span class="code-keyword">public struct</span> <span class="code-class">AnimationFloatBufferElement</span> : <span class="code-type">IBufferElementData</span>
+{
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public</span> <span class="code-type">FixedString32Bytes</span> Parameter;
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public float</span> Value;
+}
+
+[<span class="code-type">GhostComponent</span>]
+<span class="code-keyword">public struct</span> <span class="code-class">AnimationTriggerBufferElement</span> : <span class="code-type">IBufferElementData</span>
+{
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public int</span> NetworkId;
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public</span> <span class="code-type">FixedString32Bytes</span> Parameter;
+}
+
+<span class="code-comment">// Server System - Clears buffers each frame</span>
+[<span class="code-type">UpdateInGroup</span>(<span class="code-keyword">typeof</span>(<span class="code-type">SimulationSystemGroup</span>), OrderFirst = <span class="code-keyword">true</span>)]
+[<span class="code-type">WorldSystemFilter</span>(<span class="code-type">WorldSystemFilterFlags</span>.ServerSimulation)]
+<span class="code-keyword">partial struct</span> <span class="code-class">ServerClearAnimationBufferSystem</span> : <span class="code-type">ISystem</span>
+{
+    [<span class="code-type">BurstCompile</span>]
     <span class="code-keyword">public void</span> <span class="code-function">OnUpdate</span>(<span class="code-keyword">ref</span> <span class="code-type">SystemState</span> state)
     {
-        <span class="code-keyword">var</span> deltaTime = <span class="code-type">SystemAPI</span>.Time.DeltaTime;
-        
-        <span class="code-comment">// Query all player entities with movement components</span>
-        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> (transform, movement, input) <span class="code-keyword">in</span> 
-            <span class="code-type">SystemAPI</span>.<span class="code-function">Query</span>&lt;<span class="code-type">RefRW</span>&lt;<span class="code-type">LocalTransform</span>&gt;, 
-                           <span class="code-type">RefRO</span>&lt;<span class="code-type">MovementData</span>&gt;, 
-                           <span class="code-type">RefRO</span>&lt;<span class="code-type">InputData</span>&gt;&gt;())
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> (floatBuffer, intBuffer, boolBuffer, triggerBuffer, entity) <span class="code-keyword">in</span> <span class="code-type">SystemAPI</span>
+            .<span class="code-function">Query</span>&lt;<span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationFloatBufferElement</span>&gt;, 
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationIntBufferElement</span>&gt;,
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationBoolBufferElement</span>&gt;, 
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationTriggerBufferElement</span>&gt;&gt;()
+            .<span class="code-function">WithEntityAccess</span>())
         {
-            <span class="code-comment">// Calculate movement direction</span>
-            <span class="code-keyword">var</span> moveDirection = <span class="code-keyword">new</span> <span class="code-type">float3</span>(
-                input.ValueRO.Horizontal,
-                <span class="code-number">0</span>,
-                input.ValueRO.Vertical
-            );
-            
-            <span class="code-comment">// Apply movement with normalization</span>
-            <span class="code-keyword">if</span> (math.<span class="code-function">lengthsq</span>(moveDirection) > <span class="code-number">0.01f</span>)
-            {
-                moveDirection = math.<span class="code-function">normalize</span>(moveDirection);
-                transform.ValueRW.Position += moveDirection * 
-                    movement.ValueRO.Speed * deltaTime;
-            }
+            floatBuffer.<span class="code-function">Clear</span>();
+            intBuffer.<span class="code-function">Clear</span>();
+            boolBuffer.<span class="code-function">Clear</span>();
+            triggerBuffer.<span class="code-function">Clear</span>();
         }
     }
+}
+
+<span class="code-comment">// Server System - Applies animation parameters from buffers</span>
+[<span class="code-type">UpdateInGroup</span>(<span class="code-keyword">typeof</span>(<span class="code-type">LateSimulationSystemGroup</span>))]
+[<span class="code-type">WorldSystemFilter</span>(<span class="code-type">WorldSystemFilterFlags</span>.ServerSimulation)]
+<span class="code-keyword">partial class</span> <span class="code-class">ServerAnimationSystem</span> : <span class="code-type">SystemBase</span>
+{
+    <span class="code-keyword">protected override void</span> <span class="code-function">OnUpdate</span>()
+    {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> (animatorRef, floatBuffer, intBuffer, boolBuffer, triggerBuffer) <span class="code-keyword">in</span> <span class="code-type">SystemAPI</span>
+            .<span class="code-function">Query</span>&lt;<span class="code-type">AnimatorReference</span>, <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationFloatBufferElement</span>&gt;,
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationIntBufferElement</span>&gt;,
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationBoolBufferElement</span>&gt;, 
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationTriggerBufferElement</span>&gt;&gt;())
+        {
+            <span class="code-keyword">if</span> (animatorRef.Animator == <span class="code-keyword">null</span>) <span class="code-keyword">continue</span>;
+
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateFloatParameter</span>(animatorRef.Animator, floatBuffer);
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateIntParameter</span>(animatorRef.Animator, intBuffer);
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateBoolParameter</span>(animatorRef.Animator, boolBuffer);
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateTriggerParameter</span>(animatorRef.Animator, triggerBuffer);
+        }
+    }
+}
+
+<span class="code-comment">// Client System - Receives and applies replicated animation data</span>
+[<span class="code-type">UpdateInGroup</span>(<span class="code-keyword">typeof</span>(<span class="code-type">LateSimulationSystemGroup</span>))]
+[<span class="code-type">WorldSystemFilter</span>(<span class="code-type">WorldSystemFilterFlags</span>.ClientSimulation)]
+<span class="code-keyword">partial class</span> <span class="code-class">ClientAnimationSystem</span> : <span class="code-type">SystemBase</span>
+{
+    <span class="code-keyword">protected override void</span> <span class="code-function">OnUpdate</span>()
+    {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> (animatorRef, floatBuffer, intBuffer, boolBuffer, triggerBuffer) <span class="code-keyword">in</span> <span class="code-type">SystemAPI</span>
+            .<span class="code-function">Query</span>&lt;<span class="code-type">AnimatorReference</span>, <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationFloatBufferElement</span>&gt;,
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationIntBufferElement</span>&gt;,
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationBoolBufferElement</span>&gt;, 
+                     <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationTriggerBufferElement</span>&gt;&gt;())
+        {
+            <span class="code-keyword">if</span> (animatorRef.Animator == <span class="code-keyword">null</span>) <span class="code-keyword">continue</span>;
+
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateFloatParameter</span>(animatorRef.Animator, floatBuffer);
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateIntParameter</span>(animatorRef.Animator, intBuffer);
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateBoolParameter</span>(animatorRef.Animator, boolBuffer);
+            <span class="code-type">AnimationUtils</span>.<span class="code-function">UpdateTriggerParameter</span>(animatorRef.Animator, triggerBuffer);
+
+            <span class="code-comment">// Clear buffers after applying on client</span>
+            floatBuffer.<span class="code-function">Clear</span>();
+            intBuffer.<span class="code-function">Clear</span>();
+            boolBuffer.<span class="code-function">Clear</span>();
+            triggerBuffer.<span class="code-function">Clear</span>();
+        }
+    }
+}
+
+<span class="code-comment">// Utility class - Bridge between ECS buffers and Unity Animator</span>
+<span class="code-keyword">public class</span> <span class="code-class">AnimationUtils</span>
+{
+    <span class="code-comment">// Update float parameters from buffer to Animator</span>
+    <span class="code-keyword">public static void</span> <span class="code-function">UpdateFloatParameter</span>(<span class="code-keyword">in</span> <span class="code-type">Animator</span> animator, 
+        <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationFloatBufferElement</span>&gt; floatBuffer)
+    {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> floatElement <span class="code-keyword">in</span> floatBuffer)
+        {
+            animator.<span class="code-function">SetFloat</span>(floatElement.Parameter.<span class="code-function">ToString</span>(), floatElement.Value);
+        }
+    }
+
+    <span class="code-comment">// Update int parameters from buffer to Animator</span>
+    <span class="code-keyword">public static void</span> <span class="code-function">UpdateIntParameter</span>(<span class="code-keyword">in</span> <span class="code-type">Animator</span> animator, 
+        <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationIntBufferElement</span>&gt; intBuffer)
+    {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> intElement <span class="code-keyword">in</span> intBuffer)
+        {
+            animator.<span class="code-function">SetInteger</span>(intElement.Parameter.<span class="code-function">ToString</span>(), intElement.Value);
+        }
+    }
+
+    <span class="code-comment">// Update bool parameters from buffer to Animator</span>
+    <span class="code-keyword">public static void</span> <span class="code-function">UpdateBoolParameter</span>(<span class="code-keyword">in</span> <span class="code-type">Animator</span> animator, 
+        <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationBoolBufferElement</span>&gt; boolBuffer)
+    {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> boolElement <span class="code-keyword">in</span> boolBuffer)
+        {
+            animator.<span class="code-function">SetBool</span>(boolElement.Parameter.<span class="code-function">ToString</span>(), boolElement.Value);
+        }
+    }
+
+    <span class="code-comment">// Update trigger parameters from buffer to Animator</span>
+    <span class="code-keyword">public static void</span> <span class="code-function">UpdateTriggerParameter</span>(<span class="code-keyword">in</span> <span class="code-type">Animator</span> animator, 
+        <span class="code-type">DynamicBuffer</span>&lt;<span class="code-type">AnimationTriggerBufferElement</span>&gt; triggerBuffer)
+    {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> triggerElement <span class="code-keyword">in</span> triggerBuffer)
+        {
+            animator.<span class="code-function">SetTrigger</span>(triggerElement.Parameter.<span class="code-function">ToString</span>());
+        }
+    }
+
+    <span class="code-comment">// Add float parameter command (outside of job)</span>
+    [<span class="code-type">BurstCompile</span>]
+    <span class="code-keyword">public static void</span> <span class="code-function">AddFloatCommand</span>(<span class="code-keyword">in</span> <span class="code-type">FixedString32Bytes</span> name, <span class="code-keyword">in float</span> value, 
+        <span class="code-keyword">in</span> <span class="code-type">Entity</span> entity, <span class="code-keyword">in</span> <span class="code-type">EntityCommandBuffer</span> ecb)
+    {
+        ecb.<span class="code-function">AppendToBuffer</span>(entity, <span class="code-keyword">new</span> <span class="code-type">AnimationFloatBufferElement</span>
+        {
+            Parameter = name,
+            Value = value,
+        });
+    }
+
+    <span class="code-comment">// Add float parameter command (in parallel job)</span>
+    [<span class="code-type">BurstCompile</span>]
+    <span class="code-keyword">public static void</span> <span class="code-function">AddFloatCommandJob</span>(<span class="code-keyword">in</span> <span class="code-type">FixedString32Bytes</span> name, <span class="code-keyword">in float</span> value, 
+        <span class="code-keyword">in</span> <span class="code-type">Entity</span> entity, <span class="code-keyword">in</span> <span class="code-type">EntityCommandBuffer</span>.ParallelWriter ecb, <span class="code-keyword">in int</span> sortKey)
+    {
+        ecb.<span class="code-function">AppendToBuffer</span>(sortKey, entity, <span class="code-keyword">new</span> <span class="code-type">AnimationFloatBufferElement</span>
+        {
+            Parameter = name,
+            Value = value,
+        });
+    }
+
+    <span class="code-comment">// Add trigger parameter command (outside of job)</span>
+    [<span class="code-type">BurstCompile</span>]
+    <span class="code-keyword">public static void</span> <span class="code-function">AddTriggerCommand</span>(<span class="code-keyword">in</span> <span class="code-type">FixedString32Bytes</span> name, 
+        <span class="code-keyword">in</span> <span class="code-type">Entity</span> entity, <span class="code-keyword">in</span> <span class="code-type">EntityCommandBuffer</span> ecb)
+    {
+        ecb.<span class="code-function">AppendToBuffer</span>(entity, <span class="code-keyword">new</span> <span class="code-type">AnimationTriggerBufferElement</span>
+        {
+            Parameter = name,
+        });
+    }
+
+    <span class="code-comment">// Similar methods for Int, Bool parameters...</span>
 }</code></pre>
                                 </div>
                             </div>
