@@ -217,9 +217,22 @@
 }
 
 [<span class="code-type">GhostComponent</span>]
+<span class="code-keyword">public struct</span> <span class="code-class">AnimationIntBufferElement</span> : <span class="code-type">IBufferElementData</span>
+{
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public</span> <span class="code-type">FixedString32Bytes</span> Parameter;
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public int</span> Value;
+}
+
+[<span class="code-type">GhostComponent</span>]
+<span class="code-keyword">public struct</span> <span class="code-class">AnimationBoolBufferElement</span> : <span class="code-type">IBufferElementData</span>
+{
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public</span> <span class="code-type">FixedString32Bytes</span> Parameter;
+    [<span class="code-type">GhostField</span>] <span class="code-keyword">public bool</span> Value;
+}
+
+[<span class="code-type">GhostComponent</span>]
 <span class="code-keyword">public struct</span> <span class="code-class">AnimationTriggerBufferElement</span> : <span class="code-type">IBufferElementData</span>
 {
-    [<span class="code-type">GhostField</span>] <span class="code-keyword">public int</span> NetworkId;
     [<span class="code-type">GhostField</span>] <span class="code-keyword">public</span> <span class="code-type">FixedString32Bytes</span> Parameter;
 }
 
@@ -375,8 +388,6 @@
             Parameter = name,
         });
     }
-
-    <span class="code-comment">// Similar methods for Int, Bool parameters...</span>
 }</code></pre>
                                 </div>
                             </div>
