@@ -122,6 +122,7 @@
     "project_tech_title": "Technologies utilisées",
     "project_features_title": "Fonctionnalités clés",
     "project_challenges_title": "Défis techniques que j'ai rencontrés",
+    "project_learnings_title": "Ce que j'ai appris",
 
     "project_title_suna": "Suna",
     "project_date_suna": "Jan. 2025 - Mai 2025",
@@ -130,12 +131,12 @@
     "project_description_suna_2": "En tant que Corpo, vous incarnez un robot de combat dont l’objectif est de planter un extracteur ou d’éliminer toute l’équipe ennemie. En tant que Natif, vous êtes l’un des habitants de la planète, et votre mission est de protéger vos ressources en empêchant les Corpos de planter l’extracteur ou en anéantissant leur équipe.",
     "project_role_position_suna": "Programmeur Multijoueur & Gameplay",
     "project_role_description_suna": "En tant que programmeur multijoueur et gameplay, j'ai eu la responsabilité d'implémenter la base du système de tir, la localisation et la gestion des dégâts, ainsi que la création d’un système d’animation hybride combinant l’ECS de Unity et son système d’animation basé sur les GameObjects. J’ai également intégré les animations et assuré la bonne réplication du joueur (déplacements, animations, tirs, dégâts), tout en veillant à ce que le jeu reste jouable malgré un ping conséquent.",
-    "project_role_responsibility_suna_01": "mise en place de différentes simulations en ECS (client/serveur)",
-    "project_role_responsibility_suna_02": "implémentation de la base du système de tir en réseau",
-    "project_role_responsibility_suna_03": "localisation et gestion des dégâts liés au tir des joueurs",
-    "project_role_responsibility_suna_04": "mise en place d’un système d’animation hybride en réseau entre ECS de Unity et le système d’animation basé sur les GameObjects",
-    "project_role_responsibility_suna_05": "implémentation des animations",
-    "project_role_responsibility_suna_06": "réplication des mouvements, des animations et des tirs du joueur",
+    "project_role_responsibility_suna_01": "Mise en place de différentes simulations en ECS (client/serveur).",
+    "project_role_responsibility_suna_02": "Implémentation de la base du système de tir en réseau.",
+    "project_role_responsibility_suna_03": "Localisation et gestion des dégâts liés au tir des joueurs.",
+    "project_role_responsibility_suna_04": "Mise en place d’un système d’animation hybride en réseau entre ECS de Unity et le système d’animation basé sur les GameObjects.",
+    "project_role_responsibility_suna_05": "Implémentation des animations.",
+    "project_role_responsibility_suna_06": "Réplication des mouvements, des animations et des tirs du joueur.",
     "project_feature_title_suna_01": "Architecture réseaux avec autorité par le serveur",
     "project_feature_desc_suna_01": "L'architecture réseau sera composée de plusieurs clients et d'un serveur distinct, avec une autorité centralisée assurée par le serveur.",
     "project_feature_title_suna_02": "Système de Matchmaking",
@@ -150,6 +151,12 @@
     "project_challenge_desc_suna_01": "Pour ce projet, nous avons utilisé Unity DOTS, qui remplace le système classique de GameObjects de Unity par un système basé sur des entités (ECS). Étant donné que Unity DOTS est une technologie encore en développement, elle ne dispose pas de système d'animation intégré. L'une de mes responsabilités a donc été de créer un système hybride permettant de connecter l'ECS qui gère les valeurs et états des entités avec le système d'animation traditionnel de Unity, basé sur les GameObjects. Le tout en veillant à assurer une bonne réplication et synchronisation en réseau.",
     "project_challenge_solution_suna_01_title": "Solution adoptée :",
     "project_challenge_solution_suna_01_desc": "J'ai développé un système hybride qui utilise des buffers dynamiques pour stocker les paramètres d'animation (float, int, bool, trigger) sous forme de composants ECS avec synchronisation réseau via GhostComponent. Sur le serveur, un système collecte les changements d'état et les stocke dans ces buffers, tandis qu'un autre système les applique à l'Animator Unity traditionnel. Sur le client, le système reçoit automatiquement les données répliquées et met à jour les animations localement. Cette architecture permet une séparation claire entre la logique ECS et le rendu, tout en garantissant une synchronisation fluide des animations entre tous les joueurs connectés.",
+    "project_learning_suna_01": "Programmation d’un jeu multijoueur en réseau avec prédiction, réplication, synchronisation et autorité côté serveur.",
+    "project_learning_suna_02": "Découverte et apprentissage de la programmation orientée ECS (Entity Component System).",
+    "project_learning_suna_03": "Amélioration de mes compétences en travail d’équipe et en communication.",
+    "project_learning_suna_04": "Capacité à produire un code fonctionnel et optimisé, même sous des délais restreints.",
+
+
 
     "project_title": "Nom du projet",
     "project_date": "2023 - 2024",
@@ -187,7 +194,6 @@
     "project_challenge_3_solution_title": "Solution adoptée :",
     "project_challenge_3_solution_desc": "Explication détaillée de la solution implémentée pour résoudre ce défi.",
     
-    "project_learnings_title": "Ce que j'ai appris",
     "project_learnings_desc": "Décrivez ici les principales compétences acquises, les leçons apprises et comment ce projet a contribué à votre développement en tant que développeur.",
     "project_learning_1": "Premier apprentissage important",
     "project_learning_2": "Deuxième apprentissage important",

@@ -207,8 +207,7 @@
 .project-technologies,
 .project-features,
 .project-challenges,
-.project-learnings,
-.project-navigation {
+.project-learnings {
     margin-bottom: 50px;
 }
 
@@ -217,8 +216,7 @@
 .project-technologies h2,
 .project-features h2,
 .project-challenges h2,
-.project-learnings h2,
-.project-navigation h2 {
+.project-learnings h2 {
     font-size: 2rem;
     margin-bottom: 25px;
     color: #e6edf3;
@@ -231,8 +229,7 @@
 .project-technologies h2::before,
 .project-features h2::before,
 .project-challenges h2::before,
-.project-learnings h2::before,
-.project-navigation h2::before {
+.project-learnings h2::before {
     content: '';
     position: absolute;
     left: 0;
@@ -569,50 +566,6 @@
 .code-operator { color: #ff7b72; }
 .code-property { color: #79c0ff; }
 
-.other-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.other-project-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(88, 166, 255, 0.05);
-    border: 1px solid rgba(88, 166, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
-
-.other-project-card:hover {
-    background: rgba(88, 166, 255, 0.1);
-    border-color: rgba(88, 166, 255, 0.3);
-    transform: translateY(-4px);
-}
-
-.other-project-card img {
-    width: 80px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.other-project-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    color: #e6edf3;
-}
-
-.other-project-info p {
-    color: #8b949e;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
 @media (max-width: 768px) {
     .main-content {
         padding: 80px 15px 30px;
@@ -637,20 +590,6 @@
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .other-projects {
-        grid-template-columns: 1fr;
-    }
-
-    .other-project-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .other-project-card img {
-        width: 100%;
-        height: 150px;
     }
 
     .code-image-container {
