@@ -10,7 +10,7 @@
     "other_projects_title": "Autres projets",
 
     "home_name": "Adrien CLAUDE",
-    "home_network_gameplay_programmer": "Programmeur Multijoueur & Gameplay",
+    "home_network_gameplay_programmer": "Programmeur Réseau & Gameplay",
     "home_presentation": "Bienvenue ! Je m'appelle Adrien, j'ai 20 ans et je suis passionné par l'espace, la programmation et les jeux vidéo. Je me concentre sur le développement de jeux, en particulier la programmation réseau, pour créer des expériences multijoueur fluides et captivantes.",
     "home_programming_language": "Langages de programmation",
     "home_cpp": "C++",
@@ -28,7 +28,7 @@
     "home_doxygen": "Doxygen",
 
     "about_name": "Adrien CLAUDE",
-    "about_title": "Programmeur Multijoueur & Gameplay",
+    "about_title": "Programmeur Réseau & Gameplay",
     "about_description_1": "Depuis mon enfance, je suis fasciné par les mondes virtuels et les possibilités infinies qu'ils offrent. Ce qui a commencé par des heures passées à jouer s'est transformé en une passion pour comprendre leur fonctionnement et en créer de nouveaux. J'aime concevoir des expériences qui connectent les gens, en particulier à travers la programmation réseau et les jeux multijoueur, relever des défis techniques et donner vie à de nouvelles idées.",
     "about_description_2": "Avec le temps, une autre passion s'est emparée de moi : l'espace. Son immensité et ses mystères nourrissent mon imagination et influencent ma manière d'aborder la création. Pour moi, les mondes virtuels et l'univers partagent la même essence : explorer l'inconnu, repousser les limites et inventer de nouveaux horizons.",
     "about_passion_icon": "❤️",
@@ -129,7 +129,7 @@
     "project_team_size_suna": "Équipe de 10 personnes",
     "project_description_suna_1": "Suna est un jeu de tir à la première personne multijoueur compétitif inspiré de Counter-Strike. Dans ce jeu, deux équipes s’affrontent : les Corpos et les Natifs.",
     "project_description_suna_2": "En tant que Corpo, vous incarnez un robot de combat dont l’objectif est de planter un extracteur ou d’éliminer toute l’équipe ennemie. En tant que Natif, vous êtes l’un des habitants de la planète, et votre mission est de protéger vos ressources en empêchant les Corpos de planter l’extracteur ou en anéantissant leur équipe.",
-    "project_role_position_suna": "Programmeur Multijoueur & Gameplay",
+    "project_role_position_suna": "Programmeur Réseau & Gameplay",
     "project_role_description_suna": "En tant que programmeur multijoueur et gameplay, j'ai eu la responsabilité d'implémenter la base du système de tir, la localisation et la gestion des dégâts, ainsi que la création d’un système d’animation hybride combinant l’ECS de Unity et son système d’animation basé sur les GameObjects. J’ai également intégré les animations et assuré la bonne réplication du joueur (déplacements, animations, tirs, dégâts), tout en veillant à ce que le jeu reste jouable malgré un ping conséquent.",
     "project_role_responsibility_suna_01": "Mise en place de différentes simulations en ECS (client/serveur).",
     "project_role_responsibility_suna_02": "Implémentation de la base du système de tir en réseau.",
