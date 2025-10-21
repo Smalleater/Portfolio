@@ -214,5 +214,7 @@
     "wip_title": "This page is under construction",
     "wip_description": "We're working on bringing you something amazing. Check back soon for updates!",
     "wip_back_home": "Back to Home",
-    "wip_view_projects": "View Projects"
+    "wip_view_projects": "View Projects",
+
+    "footer_copyright": "All rights reserved."
 }

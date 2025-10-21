@@ -212,5 +212,7 @@
     "wip_title": "Cette page est en cours de construction",
     "wip_description": "Nous travaillons pour vous apporter quelque chose d'incroyable. Revenez bientôt pour des mises à jour !",
     "wip_back_home": "Retour à l'accueil",
-    "wip_view_projects": "Voir les projets"
+    "wip_view_projects": "Voir les projets",
+
+    "footer_copyright": "Tous droits réservés."
 }
