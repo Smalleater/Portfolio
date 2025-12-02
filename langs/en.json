@@ -63,15 +63,15 @@
     "gameProjects_skill_board_game": "Board Game",
     "gameProjects_skill_turn_based_tactics": "Turn-based Tactics",
 
-    "gameProjects_skill_network_engine": "Network Engine",
+    "gameProjects_skill_netcode": "Netcode",
     "gameProjects_skill_winsock": "Winsock",
     "gameProjects_skill_bsd_sockets": "BSD sockets",
 
-    "gameProjects_title_tme": "Travelers Multiplayer Engine",
+    "gameProjects_title_tme": "Travelers Netcode",
     "gameProjects_start_tme": "June 2025",
     "gameProjects_end_tme": "Today",
     "gameProjects_team_size_tme": "1 person",
-    "gameProjects_description_tme": "Cross-platform C++ network engine designed to simplify multiplayer game development. It supports both Windows (via Winsock) and POSIX-compliant systems (via BSD sockets).",
+    "gameProjects_description_tme": "Cross-platform C++ netcode designed to simplify multiplayer game development. It supports Windows (via Winsock) and POSIX-compatible systems (via BSD sockets).",
 
     "gameProjects_title_suna": "Suna",
     "gameProjects_start_suna": "Jan. 2025",
