@@ -59,6 +59,25 @@ async function loadLanguage(lang) {
         currentLang = lang;
         
         updateLanguageSelectors(lang);
+        
+        // Ajouter la classe loaded à tous les conteneurs principaux
+        const containers = [
+            '.about-container',
+            '.home',
+            '.featured-projects-section',
+            '.other-projects-section',
+            '.resume',
+            '.contact-container',
+            '.footer',
+            '.nav'
+        ];
+        
+        containers.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.classList.add('loaded');
+            }
+        });
     } catch (error) {
         console.error('Error loading language:', error);
     }
@@ -128,7 +147,10 @@ function initHamburgerMenu() {
 
         const navItems = navMenu.querySelectorAll('.nav-item');
         navItems.forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                navigateWithTransition(href);
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             });
@@ -154,6 +176,33 @@ function initHamburgerMenu() {
             }
         });
     }
+}
+
+function navigateWithTransition(href) {
+    // Récupérer tous les conteneurs à faire disparaître
+    const containers = [
+        '.about-container',
+        '.home',
+        '.featured-projects-section',
+        '.other-projects-section',
+        '.resume',
+        '.contact-container',
+        '.footer',
+        '.nav'
+    ];
+    
+    // Retirer la classe loaded pour faire un fade-out
+    containers.forEach(selector => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.classList.remove('loaded');
+        }
+    });
+    
+    // Attendre la fin de l'animation avant de naviguer
+    setTimeout(() => {
+        window.location.href = href;
+    }, 300);
 }
 
 function init() {

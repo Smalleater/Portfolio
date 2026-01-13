@@ -205,6 +205,12 @@ body::before {
     flex-wrap: wrap;
     justify-content: center;
     max-width: calc(100vw - 40px);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.nav.loaded {
+    opacity: 1;
 }
 
 .hamburger {
@@ -973,6 +979,12 @@ body::before {
     background: rgba(13, 17, 23, 0.5);
     border-top: 1px solid rgba(79, 172, 254, 0.2);
     backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.footer.loaded {
+    opacity: 1;
 }
 
 .footer p {

@@ -43,6 +43,12 @@ section {
     padding-top: 120px;
     text-align: center;
     position: relative;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.home.loaded {
+    opacity: 1;
 }
 
 .home h1 {
