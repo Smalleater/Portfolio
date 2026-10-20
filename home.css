@@ -86,12 +86,17 @@ section {
 }
 
 .skills-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1rem;
+    row-gap: 50px;
     margin: 50px auto 0;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    width: 100%;
+    max-width: 1100px;
+}
+
+.skills-section > * {
+    flex: 0 0 calc((100% - 2rem) / 3);
 }
 
 .skill-category {

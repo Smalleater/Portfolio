@@ -10,7 +10,7 @@
     "other_projects_title": "Autres projets",
 
     "home_name": "Adrien CLAUDE",
-    "home_network_gameplay_programmer": "Programmeur Réseau & Gameplay",
+    "home_network_gameplay_programmer": "Programmeur Network & Online",
     "home_presentation": "Bienvenue ! Je m'appelle Adrien, j'ai 20 ans et je suis passionné par l'espace, la programmation et les jeux vidéo. Je me concentre sur le développement de jeux, en particulier la programmation réseau, pour créer des expériences multijoueur fluides et captivantes.",
     "home_programming_language": "Langages de programmation",
     "home_cpp": "C++",
@@ -19,6 +19,7 @@
     "home_engine_framework": "Moteurs et Frameworks",
     "home_unity": "Unity Engine",
     "home_sfml": "SFML",
+    "home_cloud_infrastructure": "CLOUD ET INFRASTRUCTURE",
     "home_software_tools": "Logiciels et Outils",
     "home_visual_studio": "Visual Studio",
     "home_visual_studio_code": "Visual Studio Code",
@@ -28,7 +29,7 @@
     "home_doxygen": "Doxygen",
 
     "about_name": "Adrien CLAUDE",
-    "about_title": "Programmeur Réseau & Gameplay",
+    "about_title": "Programmeur Network & Online",
     "about_description_1": "Depuis mon enfance, je suis fasciné par les mondes virtuels et les possibilités infinies qu'ils offrent. Ce qui a commencé par des heures passées à jouer s'est transformé en une passion pour comprendre leur fonctionnement et en créer de nouveaux. J'aime concevoir des expériences qui connectent les gens, en particulier à travers la programmation réseau et les jeux multijoueur, relever des défis techniques et donner vie à de nouvelles idées.",
     "about_description_2": "Avec le temps, une autre passion s'est emparée de moi : l'espace. Son immensité et ses mystères nourrissent mon imagination et influencent ma manière d'aborder la création. Pour moi, les mondes virtuels et l'univers partagent la même essence : explorer l'inconnu, repousser les limites et inventer de nouveaux horizons.",
     "about_passion_icon": "❤️",
