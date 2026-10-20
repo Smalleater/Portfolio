@@ -9,7 +9,6 @@ section {
 
 .profile-container {
     margin-bottom: 30px;
-    order: -2;
 }
 
 .profile-image {
@@ -21,7 +20,6 @@ section {
     box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
     transition: transform 0.3s ease;
     overflow: hidden;
-    will-change: transform;
 }
 
 .profile-image img {
@@ -41,7 +39,6 @@ section {
     display: block;
     text-align: center;
     padding-top: 120px;
-    text-align: center;
     position: relative;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -77,7 +74,7 @@ section {
 .home p {
     font-size: 1.3rem;
     color: rgba(230, 237, 243, 0.9);
-    max-width: 750px;
+    max-width: clamp(300px, 75vw, 750px);
     margin: 0 auto 30px;
     line-height: 1.8;
     text-align: center;
@@ -137,8 +134,6 @@ section {
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 8px;
-    backdrop-filter: blur(5px);
-    will-change: transform;
 }
 
 .logo img {
@@ -176,8 +171,7 @@ section {
     pointer-events: none;
     transition: opacity 0.3s ease;
     border: 1px solid rgba(79, 172, 254, 0.3);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    z-index: 10;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -348,7 +342,7 @@ section {
     .mouse-particle {
         animation: none;
     }
-    
+
     .logo:hover,
     .profile-image:hover,
     .nav-item:hover,
@@ -357,13 +351,6 @@ section {
         transform: none;
         transition: none;
     }
-}
-
-.profile-image,
-.logo {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
 }
 
 .logo {
