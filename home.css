@@ -14,19 +14,20 @@ section {
 .profile-image {
     width: 200px;
     height: 200px;
-    margin: 0 auto;
     border-radius: 50%;
+    margin: 0 auto 30px;
     border: 3px solid #4facfe;
     box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
     transition: transform 0.3s ease;
     overflow: hidden;
+    will-change: transform;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    border-radius: 50%;
 }
 
 .profile-image:hover {
@@ -48,9 +49,9 @@ section {
     opacity: 1;
 }
 
-.home h1 {
-    font-size: 4.2rem;
-    margin-bottom: 40px;
+.presentation-text h1 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
     background: linear-gradient(135deg, #4facfe 0%, #00ffff 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -71,14 +72,13 @@ section {
     line-height: 1.4;
 }
 
-.home p {
+.presentation-text p {
     font-size: 1.3rem;
     color: rgba(230, 237, 243, 0.9);
-    max-width: clamp(300px, 75vw, 750px);
+    max-width: clamp(300px, 75vw, 1000px);
     margin: 0 auto 30px;
-    line-height: 1.8;
+    line-height: 1.5;
     text-align: center;
-    letter-spacing: 0.3px;
     font-weight: 400;
 }
 
