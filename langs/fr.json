@@ -71,7 +71,7 @@
 
     "gameProjects_title_tme": "Travelers Netcode",
     "gameProjects_start_tme": "Juin 2025",
-    "gameProjects_end_tme": "Aujourd'hui",
+    "gameProjects_end_tme": "Avril 2026",
     "gameProjects_team_size_tme": "1 personne",
     "gameProjects_description_tme": "Netcode C++ multiplateforme conçu pour simplifier le développement de jeux multijoueur. Il prend en charge Windows (via Winsock) et les systèmes compatibles POSIX (via BSD sockets).",
 
@@ -117,6 +117,7 @@
 
     "project_back_to_projects": "← Retour aux projets",
     "project_status_completed": "Terminé",
+    "project_status_archived": "Archivé",
     "project_status_in_progress": "En cours",
     "project_overview_title": "Aperçu du projet",
     "project_role_title": "Mon rôle dans le projet",
@@ -162,7 +163,7 @@
     "project_learning_suna_04": "Capacité à produire un code fonctionnel et optimisé, même sous des délais restreints.",
 
     "project_title_Travelers_Netcode": "Travelers-Netcode",
-    "project_date_Travelers_Netcode": "juin 2025 - Aujourd'hui",
+    "project_date_Travelers_Netcode": "juin 2025 - Avril 2026",
     "project_team_size_Travelers_Netcode": "Équipe de 1 personne",
     "project_description_Travelers_Netcode": "Travelers-Netcode est un netcode multiplateforme en C++ basé sur Winsock pour Windows ainsi que BSD Socket pour Linux. L'objectif de cette librairie est de proposer une solution efficace et simple d'utilisation pour faire des jeux multijoueur en C++, notamment avec des frameworks.",
     "project_role_position_Travelers_Netcode": "Développeur principal (Projet solo)",

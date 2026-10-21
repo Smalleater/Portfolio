@@ -80,6 +80,12 @@
     border: 1px solid rgba(74, 222, 128, 0.3);
 }
 
+.status-archived {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff7b72;
+    border: 1px solid rgba(254, 20, 20, 0.3);
+}
+
 .status-in-progress {
     background: rgba(255, 165, 0, 0.2);
     color: #fbbf24;
