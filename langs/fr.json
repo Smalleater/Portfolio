@@ -117,7 +117,7 @@
     "project_learnings_title": "Ce que j'ai appris",
 
     "project_title_Travelers_Netcode": "Travelers-Netcode",
-    "project_date_Travelers_Netcode": "juin 2025 - Avril 2026",
+    "project_date_Travelers_Netcode": "Juin 2025 - Avril 2026",
     "project_team_size_Travelers_Netcode": "Projet personnel",
     "project_description_Travelers_Netcode": "Travelers-Netcode est un netcode multiplateforme (Windows et POSIX), développé en C++17. Il s'agit de mon premier projet de netcode. Il m'a permis de faire mes premiers pas dans le développement réseau et de découvrir les mécanismes de bas niveau utilisés dans les jeux multijoueurs.",
     "project_role_position_Travelers_Netcode": "Programmeur Network",
