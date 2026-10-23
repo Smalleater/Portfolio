@@ -62,8 +62,8 @@ async function loadLanguage(lang) {
         
         // Ajouter la classe loaded à tous les conteneurs principaux
         const containers = [
-            '.about-container',
             '.home',
+            '.experience-section',
             '.featured-projects-section',
             '.other-projects-section',
             '.resume',
@@ -181,8 +181,8 @@ function initHamburgerMenu() {
 function navigateWithTransition(href) {
     // Récupérer tous les conteneurs à faire disparaître
     const containers = [
-        '.about-container',
         '.home',
+        '.experience-section',
         '.featured-projects-section',
         '.other-projects-section',
         '.resume',

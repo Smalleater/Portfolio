@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Adrien CLAUDE</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="experience.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="langSelector">
+        <div class="lang-toggle">
+            <div class="lang-option active" data-lang="en">EN</div>
+            <div class="lang-option" data-lang="fr">FR</div>
+        </div>
+    </div>
+
+    <div class="social-link">
+        <a href="https://www.linkedin.com/in/adrien-claude/" target="_blank">
+            <div class="social-logo">
+                <img src="logos/linkedin_logo.webp">
+            </div>
+        </a>
+        <a href="https://github.com/Smalleater" target="_blank">
+            <div class="social-logo">
+                <img src="logos/github_logo.webp">
+            </div>
+        </a>
+    </div>
+
+    <nav class="nav">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+            <div class="mobile-lang-selector">
+                <div class="mobile-lang-toggle">
+                    <div class="mobile-lang-option active" data-lang="en">EN</div>
+                    <div class="mobile-lang-option" data-lang="fr">FR</div>
+                </div>
+            </div>
+            <a href="index.html" class="nav-item" data-i18n="nav_home"></a>
+            <a href="experience.html" class="nav-item active" data-i18n="nav_experience"></a>
+            <a href="projects.html" class="nav-item" data-i18n="nav_projects"></a>
+            <a href="resume.html" class="nav-item" data-i18n="nav_resume"></a>
+            <a href="contact.html" class="nav-item" data-i18n="nav_contact"></a>
+        </div>
+    </nav>
+
+    <section class="experience-section">
+        <div class="experience-grid">
+            <a href="workinprogress.html" class="experience-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxvYWRpbmcuLi48L3RleHQ+PC9zdmc+" data-src="images/ubisoft_ivt/studio_logo.webp" alt="studio_logo" class="experience-image lazy-load">
+                <div class="experience-header">
+                    <h2 class="experience-title" data-i18n="experience_title_ubisoft_ivory_tower"></h2>
+                    <div class="experience-dates">
+                        <span class="date-start" data-i18n="experience_start_ubisoft_ivt"></span>
+                        <span class="date-separator" data-i18n="experience_separator"></span>
+                        <span class="date-end" data-i18n="experience_end_ubisoft_ivt"></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><span class="copyright-symbol">©</span> 2025 <span class="name">Adrien CLAUDE</span>. <span data-i18n="footer_copyright">All rights reserved.</span></p>
+    </footer>
+</body>
+</html>

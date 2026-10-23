@@ -51,7 +51,6 @@ section {
 }
 
 .home.loaded {
-    opacity: 1;
     visibility: visible;
 }
 

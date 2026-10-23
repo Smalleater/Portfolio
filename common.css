@@ -5,6 +5,7 @@
 }
 
 body {
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: radial-gradient(ellipse at center, #0d1117 0%, #000000 100%);
     color: #e6edf3;
@@ -15,6 +16,9 @@ body {
     hyphens: auto;
     line-height: 1.6;
     font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body::before {
@@ -970,8 +974,6 @@ body::before {
 }
 
 .footer {
-    position: relative;
-    bottom: 0;
     width: 100%;
     text-align: center;
     padding: 20px 0;

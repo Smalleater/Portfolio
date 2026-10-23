@@ -1,5 +1,6 @@
 {
     "nav_home": "🚀 Accueil",
+    "nav_experience": "💼 Expérience",
     "nav_projects": "⚙️ Projets",
     "nav_resume": "📄 CV",
     "nav_contact": "📡 Contact",
@@ -28,6 +29,12 @@
     "home_github": "Github",
     "home_tortoise_svn": "TortoiseSVN",
     "home_doxygen": "Doxygen",
+
+    "experience_separator": "→",
+
+    "experience_title_ubisoft_ivory_tower": "Ubisoft Ivory Tower",
+    "experience_start_ubisoft_ivt": "Avril 2026",
+    "experience_end_ubisoft_ivt": "Octobre 2026",
 
     "gameProjects_separator": "→",
     "gameProjects_team_icon": "👥",
@@ -227,10 +234,8 @@
     "project_next_title": "Projet suivant",
     "project_next_desc": "Courte description du projet suivant",
 
-    "wip_title": "Cette page est en cours de construction",
-    "wip_description": "Nous travaillons pour vous apporter quelque chose d'incroyable. Revenez bientôt pour des mises à jour !",
+    "wip_title": "Cette page n’est actuellement pas disponible.",
     "wip_back_home": "Retour à l'accueil",
-    "wip_view_projects": "Voir les projets",
 
     "footer_copyright": "Tous droits réservés."
 }
