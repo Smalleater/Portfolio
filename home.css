@@ -1,3 +1,10 @@
+:root{
+    --text-base: clamp(1rem, 0.93rem + 0.34vw, 1.25rem);
+    --text-h3: clamp(1.25rem, 1.159rem + 0.455vw, 1.5rem);
+    --text-h2: clamp(1.5rem, 1.409rem + 0.455vw, 1.75rem);
+    --text-h1: clamp(1.75rem, 1.35rem + 2vw, 3rem);
+}
+
 section {
     min-height: 100vh;
     padding: 100px 50px;
@@ -20,7 +27,6 @@ section {
     box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
     transition: transform 0.3s ease;
     overflow: hidden;
-    will-change: transform;
 }
 
 .profile-image img {
@@ -41,17 +47,19 @@ section {
     text-align: center;
     padding-top: 120px;
     position: relative;
-    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease-in-out;
 }
 
 .home.loaded {
     opacity: 1;
+    visibility: visible;
 }
 
 .presentation-text h1 {
-    font-size: 3.2rem;
+    font-size: var(--text-h1);
     margin-bottom: 10px;
+    color: #4facfe;
     background: linear-gradient(135deg, #4facfe 0%, #00ffff 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -63,7 +71,7 @@ section {
 }
 
 .presentation-text h2 {
-    font-size: 1.6rem;
+    font-size: var(--text-h2);
     color: rgba(230, 237, 243, 0.85);
     margin-bottom: 30px;
     font-weight: 400;
@@ -73,9 +81,9 @@ section {
 }
 
 .presentation-text p {
-    font-size: 1.3rem;
+    font-size: var(--text-base);
     color: rgba(230, 237, 243, 0.9);
-    max-width: clamp(300px, 75vw, 1000px);
+    max-width: 1000px;
     margin: 0 auto 30px;
     line-height: 1.5;
     text-align: center;
@@ -95,9 +103,8 @@ section {
 
 .skill-category h3 {
     color: #4facfe;
-    font-size: 1.3rem;
+    font-size: var(--text-h3);
     margin-bottom: 25px;
-    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     text-shadow: 0 0 10px rgba(79, 172, 254, 0.2);
@@ -109,11 +116,6 @@ section {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
-}
-
-.logo-item {
-    position: relative;
-    cursor: pointer;
 }
 
 .logo {
@@ -148,6 +150,11 @@ section {
     transform: scale(1.05);
 }
 
+.logo-item {
+    position: relative;
+    cursor: pointer;
+}
+
 .logo-item::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -159,154 +166,18 @@ section {
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 12px;
-    white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
     border: 1px solid rgba(79, 172, 254, 0.3);
     z-index: 10;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    max-width: 200px;
+    white-space: normal;
 }
 
 .logo-item:hover::after {
     opacity: 1;
-}
-
-@media (max-width: 1024px) {
-    .home {
-        padding-top: 140px;
-    }
-}
-
-@media (max-width: 768px) {
-    .home {
-        padding-top: 90px;
-    }
-
-    .home h1 {
-        font-size: 2.5rem;
-        line-height: 1.1;
-        margin-bottom: 30px;
-    }
-
-    .presentation-text h2 {
-        font-size: 1.3rem;
-        margin-bottom: 25px;
-    }
-
-    .home p {
-        font-size: 1.1rem;
-        max-width: 90%;
-        line-height: 1.6;
-    }
-
-    section {
-        padding: 80px 20px;
-    }
-
-    body::before {
-        background: none;
-    }
-
-    .skill-category h3 {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .home h1 {
-        font-size: 2rem;
-        line-height: 1.1;
-        margin-bottom: 25px;
-    }
-
-    .presentation-text h2 {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-        letter-spacing: 0.8px;
-    }
-
-    .home p {
-        font-size: 1rem;
-        padding: 0 10px;
-        max-width: 95%;
-        line-height: 1.5;
-        letter-spacing: 0.3px;
-    }
-
-    section {
-        padding: 60px 15px;
-    }
-
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media (max-width: 360px) {
-    .home h1 {
-        font-size: 1.8rem;
-        line-height: 1.1;
-        margin-bottom: 20px;
-    }
-
-    .presentation-text h2 {
-        font-size: 1rem;
-        margin-bottom: 18px;
-        letter-spacing: 0.6px;
-    }
-
-    .home p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        letter-spacing: 0.2px;
-    }
-
-    .logo {
-        width: 45px;
-        height: 45px;
-    }
-
-    .logos-container {
-        gap: 10px;
-    }
-}
-
-@media (max-width: 320px) {
-    .home {
-        padding: 60px 15px 20px;
-        gap: 25px;
-    }
-
-    .home h1 {
-        font-size: 1.6rem;
-        line-height: 1.1;
-        margin-bottom: 15px;
-    }
-
-    .presentation-text h2 {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-        letter-spacing: 0.5px;
-    }
-
-    .home p {
-        font-size: 0.8rem;
-        line-height: 1.4;
-        letter-spacing: 0.1px;
-    }
-
-    .logo {
-        width: 40px;
-        height: 40px;
-    }
-
-    .logos-container {
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -318,14 +189,9 @@ section {
 
     .logo:hover,
     .profile-image:hover,
-    .nav-item:hover,
     .lang-toggle:hover,
     .lang-option {
         transform: none;
         transition: none;
     }
-}
-
-.logo {
-    contain: layout style paint;
 }
