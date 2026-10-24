@@ -92,8 +92,8 @@
     transition: all 0.3s ease;
 }
 
-.project-card:hover .date-start,
-.project-card:hover .date-end {
+.experience-card:hover .date-start,
+.experience-card:hover .date-end {
     background: rgba(79, 172, 254, 0.15);
     border-color: rgba(79, 172, 254, 0.3);
     color: #4facfe;
@@ -105,6 +105,6 @@
     transition: color 0.3s ease;
 }
 
-.project-card:hover .date-separator {
+.experience-card:hover .date-separator {
     color: #00ffff;
 }
