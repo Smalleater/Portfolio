@@ -9,11 +9,13 @@
     margin-top: 100px;
     min-height: calc(100vh - 100px);
     opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease-in-out;
 }
 
 .contact-container.loaded {
     opacity: 1;
+    visibility: visible;
 }
 
 .contact-header {

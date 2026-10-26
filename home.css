@@ -46,11 +46,13 @@ section {
     text-align: center;
     padding-top: 120px;
     position: relative;
+    opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out;
 }
 
 .home.loaded {
+    opacity: 1;
     visibility: visible;
 }
 

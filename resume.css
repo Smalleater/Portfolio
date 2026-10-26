@@ -10,11 +10,13 @@
     margin-top: 100px;
     margin-bottom: 40px;
     opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease-in-out;
 }
 
 .resume.loaded {
     opacity: 1;
+    visibility: visible;
 }
 
 .resume img {

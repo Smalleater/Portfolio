@@ -2,21 +2,25 @@
     margin-bottom: 60px;
     padding-top: 120px;
     opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease-in-out;
 }
 
 .featured-projects-section.loaded {
     opacity: 1;
+    visibility: visible;
 }
 
 .other-projects-section {
     margin-bottom: 40px;
     opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease-in-out;
 }
 
 .other-projects-section.loaded {
     opacity: 1;
+    visibility: visible;
 }
 
 .section-title {

@@ -31,10 +31,13 @@
     "home_doxygen": "Doxygen",
 
     "experience_separator": "→",
+    "experience_projects_label": "Projets",
 
-    "experience_title_ubisoft_ivory_tower": "Ubisoft Ivory Tower",
+    "experience_title_ubisoft_ivt": "Ubisoft Ivory Tower",
+    "experience_role_ubisoft_ivt": "Programmeur Online Assistant (Stagiaire)",
     "experience_start_ubisoft_ivt": "Avril 2026",
     "experience_end_ubisoft_ivt": "Octobre 2026",
+    "experience_project_01_ubisoft_ivt": "The Crew Motorfest",
 
     "gameProjects_separator": "→",
     "gameProjects_team_icon": "👥",
