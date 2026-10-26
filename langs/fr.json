@@ -115,6 +115,7 @@
     "contact_linkedin_link": "linkedin.com/in/adrien-claude",
 
     "project_back_to_projects": "← Retour aux projets",
+    "project_goto_github": "Voir sur GitHub →",
     "project_status_completed": "Terminé",
     "project_status_archived": "Archivé",
     "project_status_in_progress": "En cours",

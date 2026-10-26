@@ -16,11 +16,13 @@
     }
 }
 
-.back-navigation {
-    margin-bottom: 30px;
+.top-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.back-btn {
+.top-navigation-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -34,7 +36,7 @@
     background: rgba(88, 166, 255, 0.1);
 }
 
-.back-btn:hover {
+.top-navigation-btn:hover {
     background: rgba(88, 166, 255, 0.2);
     transform: translateX(-4px);
 }
