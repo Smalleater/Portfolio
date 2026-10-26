@@ -1,4 +1,4 @@
-const STARS_COUNT = 10;
+const STARS_COUNT = 20;
 
 let currentLang = "en";
 let lastScrollTime = 0;
